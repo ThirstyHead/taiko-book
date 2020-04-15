@@ -11,4 +11,4 @@ This book was written in Asciidoctor. This project assumes that you have Asciido
 * Asciidoctor PDF: https://asciidoctor.org/docs/asciidoctor-pdf
 
 ### Future Features
-The default local installation of Asciidoctor is written in Ruby. There is a JavaScript port of Asciidoctor that should run equivalently in NodeJS. Migrating this project to AsciidoctorJS is an early goal of this project so that you can `git clone; npm install; npm build`. 
+The default local installation of Asciidoctor is written in Ruby. There is a JavaScript port of Asciidoctor that should run equivalently in NodeJS. Migrating this project to AsciidoctorJS is an early goal of this project so that you can `git clone; npm install; npm build`. https://asciidoctor.org/docs/asciidoctor.js/
