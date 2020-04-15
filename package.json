@@ -4,7 +4,7 @@
   "description": "This books takes a very practical, code-first approach to solving common problems using Taiko, a browser-automation DSL.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "asciidoctor-pdf --source-dir=./src/book --destination-dir=./dist -a pdf-themesdir=./src/book/__theme -a pdf-theme=book ./src/book/book.adoc"
   },
   "repository": {
     "type": "git",

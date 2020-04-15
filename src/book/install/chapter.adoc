@@ -1,0 +1,3 @@
+== Installation
+
+Installing Taiko couldn't be easier. It's a single command: `npm install -g taiko`.
