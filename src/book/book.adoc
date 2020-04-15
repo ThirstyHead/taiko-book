@@ -1,15 +1,12 @@
-= Taiko: A Code-First Approach
-:Author:        Scott Davis
+= Taiko{nbsp}: A Code-First Approach{nbsp}{nbsp}
+:Author:        Scott Davis{nbsp}{nbsp}{nbsp}
 :Email:         scott.davis@thoughtworks.com
 :Date:          2020-04-15
 :Revision:      0.1.0
 :doctype:       book
 :pdf-page-size: Letter
 
-== Table of Contents
 :toc:
-<<<
 
 include::intro/chapter.adoc[]
-<<<
 include::install/chapter.adoc[]
