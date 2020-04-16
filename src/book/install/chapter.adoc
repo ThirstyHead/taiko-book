@@ -61,6 +61,58 @@ The Taiko REPL (Read Evaluate Print Loop) is an interactive terminal shell that 
 The Taiko REPL is the perfect way to experiment with Taiko whether you are brand new to the DSL or an experienced user. Once you are confident that your code works (because you've just watched it work), you can save it and run it outside of the REPL, either manually or as a part of your automated CD pipeline. 
 
 
+[[section_saving_code_from_the_taiko_repl]]
+=== Saving Code from the Taiko REPL
+[source, shell]
+----
+$ taiko
+
+> openBrowser()
+ ✔ Browser opened
+> goto('wikipedia.org')
+ ✔ Navigated to URL http://wikipedia.org
+> closeBrowser()
+ ✔ Browser closed
+> .code
+
+const { openBrowser, goto, closeBrowser } = require('taiko');
+(async () => {
+    try {
+        await openBrowser();
+        await goto('wikipedia.org');
+    } catch (error) {
+        console.error(error);
+    } finally {
+        await closeBrowser();
+    }
+})();
+
+// If you provide a filename, 
+//   .code saves your code to the current directory
+> .code visit-wikipedia.js 
+----
+
+At any point in the Taiko REPL, you can type `.code` to see what the JavaScript will look like once you run your Taiko code outside of the REPL. Notice that this is modern asynchronous JavaScript -- every command will `await` completion before moving on to the next step. 
+
+If you'd like to save this code for running outside of the REPL, simply provide a filename like `.code visit-wikipedia.js`. This will save the JavaScript code to the current directory.
+
+
+[[section_running_taiko_code_outside_of_the_repl]]
+=== Running Taiko Code Outside of the REPL
+[source, shell]
+----
+$ taiko visit-wikipedia.js
+
+ ✔ Browser opened
+ ✔ Navigated to URL http://wikipedia.org
+ ✔ Browser closed
+----
+
+When you type `taiko` without a filename, it launches the Taiko REPL. When you type `taiko visit-wikipedia.js`, it runs the Taiko commands in the file. 
+
+You might have noticed that typing `openBrowser()` in the Taiko REPL actually opens a browser that you can see. By default, running Taiko commands outside of the REPL runs the browser in "headless mode". This means that the browser isn't actually shown on screen, but its behavior in headless mode is identical to its behavior with a visible browser. This is ideal for running Taiko commands in an automated server environment where there most likely isn't a screen to display the progress.  
+
+If you'd like to see the browser when running Taiko commands outside of the REPL, type `taiko --observe visit-wikipedia.js`. The `--observe` command-line flag, in addition to showing the browser, also inserts a 3 second (3000 millisecond) delay between steps to make them easier to observe. If you'd like to adjust this delay, use the `--wait-time` command-line flag -- `taiko --observe --wait-time 1000 visit-wikipedia.js`.
 
 
 
