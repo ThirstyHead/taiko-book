@@ -1,14 +1,32 @@
 # Taiko Book
 
-This books takes a very practical, code-first approach to solving common problems using Taiko, a browser-automation DSL.
+This books takes a very practical, code-first approach to 
+solving common problems using Taiko, a browser-automation 
+DSL.
 
 
 ## Building the book
-This book was written in Asciidoctor. This project assumes that you have Asciidoctor installed locally, as well as Asciidoctor PDF.
 
-### Software Requirements
-* Asciidoctor: https://asciidoctor.org
-* Asciidoctor PDF: https://asciidoctor.org/docs/asciidoctor-pdf
+This book was written in Asciidoctor. This project assumes 
+that you have ruby and [bundler](https://bundler.io) installed.
 
-### Future Features
-The default local installation of Asciidoctor is written in Ruby. There is a JavaScript port of Asciidoctor that should run equivalently in NodeJS. Migrating this project to AsciidoctorJS is an early goal of this project so that you can `git clone; npm install; npm build`. https://asciidoctor.org/docs/asciidoctor.js/
+To install all the dependencies please run
+
+```
+bundle install --path vendor/bundle
+```
+
+This installs all the required dependencies.
+
+To generate pdf output in the `dist` folder run
+
+```
+bundle exec rake pdf
+```
+
+To generate html output in the `dist` folder run
+
+
+```
+bundle exec rake html
+```
