@@ -1,0 +1,8 @@
+
+
+openBrowser()
+setViewport
+emulateDevice
+emulateNetwork
+setLocation
+
