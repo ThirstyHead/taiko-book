@@ -1,0 +1,27 @@
+<<<
+[[section_installing_taiko]]
+=== Installing Taiko
+[source,shell]
+----
+$ npm install -g taiko
+
+/Users/scott/.nvm/versions/node/v12.14.1/bin/taiko -> 
+/Users/scott/.nvm/versions/node/v12.14.1/lib/node_modules/
+  taiko/bin/taiko.js
+
+> taiko@1.0.7 install /Users/scott/.nvm/versions/node/v12.14.1/lib/node_modules/taiko
+> node lib/install.js
+
+Downloading Chromium r724157 - 117.6 Mb [====================] 100% 0.0s 
+
+> taiko@1.0.7 postinstall /Users/scott/.nvm/versions/node/v12.14.1/lib/node_modules/taiko
+> node lib/documentation.js
+
+Generating documentation to lib/api.json
++ taiko@1.0.7
+added 73 packages from 114 contributors in 50.835s
+----
+
+When you install Taiko, notice that you get a known-compatible version of Chromium installed as well. Chromium is an open-source, bare-bones web browser that, as you might've guessed by the name, is the core of the Google Chrome browser. Interestingly, Chromium is also the foundation of the Opera browser, the Microsoft Edge browser, and many others. Chromium-based browsers make up roughly two-thirds of the browser market, so using Chromium with Taiko covers the widest possible swath of typical web users. 
+
+
