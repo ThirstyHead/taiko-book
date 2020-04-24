@@ -1,0 +1,7 @@
+<<<
+[[section_take_a_screenshot]]
+=== *Take a Screenshot
+[source, javascript]
+----
+screenshot
+----

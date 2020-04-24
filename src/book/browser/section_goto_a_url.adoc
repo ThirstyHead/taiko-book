@@ -1,0 +1,12 @@
+<<<
+[[section_goto_a_url]]
+=== *Goto a URL
+[source, javascript]
+----
+goto
+goBack
+goForward
+reload
+currentURL
+title
+----

@@ -1,0 +1,9 @@
+<<<
+[[section_open_and_close_a_tab]]
+=== *Open and Close a Tab
+[source, javascript]
+----
+openTab
+closeTab
+switchTo
+----

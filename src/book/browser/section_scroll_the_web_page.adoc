@@ -1,0 +1,11 @@
+<<<
+[[section_scroll_the_web_page]]
+=== *Scroll the Web Page
+[source, javascript]
+----
+scrollTo
+scrollRight
+scrollLeft
+scrollUp
+scrollDown
+----

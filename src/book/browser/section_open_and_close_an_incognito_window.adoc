@@ -1,0 +1,8 @@
+<<<
+[[section_open_and_close_an_incognito_window.adoc]]
+=== *Open and Close an Incognito Window
+[source, javascript]
+----
+openIncognitoWindow
+closeIncognitoWindow
+----
