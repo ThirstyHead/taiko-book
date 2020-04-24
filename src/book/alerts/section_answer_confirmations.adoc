@@ -1,0 +1,7 @@
+<<<
+[[section_answer_confirmations.adoc]]
+=== *Answer Confirmations
+[source, javascript]
+----
+confirm
+----

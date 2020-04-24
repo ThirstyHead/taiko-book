@@ -1,0 +1,9 @@
+<<<
+[[section_dismiss_alert_boxes.adoc]]
+=== *Dismiss Alert Boxes
+[source, javascript]
+----
+alert
+accept
+dismiss
+----

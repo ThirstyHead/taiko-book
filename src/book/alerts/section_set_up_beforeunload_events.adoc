@@ -1,0 +1,7 @@
+<<<
+[[section_set_up_beforeunload_events.adoc]]
+=== *Set Up beforeUnload Events
+[source, javascript]
+----
+beforeunload
+----

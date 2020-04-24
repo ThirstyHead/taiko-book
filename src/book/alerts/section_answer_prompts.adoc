@@ -1,0 +1,7 @@
+<<<
+[[section_answer_prompts.adoc]]
+=== *Answer Prompts
+[source, javascript]
+----
+prompt
+----

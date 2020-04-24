@@ -1,0 +1,10 @@
+[[chapter_alerts]]
+== Working with Alerts and Dialog Boxes
+
+In this chapter, you'll learn how to work with alerts and dialog boxes.
+
+include::section_dismiss_alert_boxes.adoc[]
+include::section_answer_prompts.adoc[]
+include::section_answer_confirmations.adoc[]
+include::section_set_up_beforeunload_events.adoc[]
+
