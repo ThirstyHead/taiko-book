@@ -1,6 +1,6 @@
 <<<
-[[section_installing_taiko]]
-=== Installing Taiko
+[[section_instal_taiko]]
+=== Install Taiko
 [source,shell]
 ----
 $ npm install -g taiko

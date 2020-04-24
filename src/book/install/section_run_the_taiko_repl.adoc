@@ -1,6 +1,6 @@
 <<<
-[[section_running_the_taiko_repl]]
-=== Running the Taiko REPL
+[[section_run_the_taiko_repl]]
+=== Run the Taiko REPL
 [source, shell]
 ----
 $ taiko

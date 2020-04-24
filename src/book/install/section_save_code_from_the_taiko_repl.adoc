@@ -1,7 +1,7 @@
 
 <<<
-[[section_saving_code_from_the_taiko_repl]]
-=== Saving Code from the Taiko REPL
+[[section_save_code_from_the_taiko_repl]]
+=== Save Code from the Taiko REPL
 [source, shell]
 ----
 $ taiko

@@ -3,10 +3,10 @@
 
 Installing Taiko couldn't be easier. It's a single command: `npm install -g taiko`. But there's plenty more that you can do to configure and customize Taiko once it's installed. 
 
-include::section_installing_taiko.adoc[]
-include::section_running_the_taiko_repl.adoc[]
-include::section_saving_code_from_the_taiko_repl.adoc[]
-include::section_running_taiko_code_outside_of_the_repl.adoc[]
-include::section_getting_command_line_help.adoc[]
+include::section_install_taiko.adoc[]
+include::section_run_the_taiko_repl.adoc[]
+include::section_save_code_from_the_taiko_repl.adoc[]
+include::section_run_taiko_code_outside_of_the_repl.adoc[]
+include::section_get_command_line_help.adoc[]
 include::section_run_taiko_in_an_alternate_browser.adoc[]
 include::section_emulate_a_smartphone.adoc[]

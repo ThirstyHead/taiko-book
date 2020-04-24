@@ -1,7 +1,7 @@
 
 <<<
-[[section_getting_command_line_help]]
-=== Getting Command-Line Help
+[[section_get_command_line_help]]
+=== Get Command-Line Help
 [source, shell]
 ----
 $ taiko --help

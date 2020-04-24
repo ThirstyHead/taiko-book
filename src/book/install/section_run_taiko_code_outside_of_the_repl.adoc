@@ -1,7 +1,7 @@
 
 <<<
-[[section_running_taiko_code_outside_of_the_repl]]
-=== Running Taiko Code Outside of the REPL
+[[section_run_taiko_code_outside_of_the_repl]]
+=== Run Taiko Code Outside of the REPL
 [source, shell]
 ----
 $ taiko visit-wikipedia.js
