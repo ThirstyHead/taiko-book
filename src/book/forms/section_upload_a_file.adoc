@@ -1,0 +1,8 @@
+<<<
+[[section_upload_a_file.adoc]]
+=== *Upload a File
+[source, javascript]
+----
+fileField
+attach
+----

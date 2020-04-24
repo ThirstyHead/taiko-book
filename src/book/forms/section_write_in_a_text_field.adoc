@@ -1,0 +1,14 @@
+<<<
+[[section_write_in_a_text_field]]
+=== *Write in a Text Field
+[source, javascript]
+----
+textBox
+click
+focus
+write
+clear
+to
+into
+press
+----

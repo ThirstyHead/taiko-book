@@ -1,0 +1,12 @@
+[[chapter_forms]]
+== Working with Forms
+
+In this chapter, you'll learn how to work with forms.
+
+include::section_write_in_a_text_field.adoc[]
+include::section_click_a_checkbox_or_radio_button.adoc[]
+include::section_select_from_a_dropdown.adoc[]
+include::section_upload_a_file.adoc[]
+include::section_adjust_a_time_field.adoc[]
+include::section_pick_from_a_color_field.adoc[]
+include::section_adjust_a_range_field.adoc[]

@@ -1,0 +1,8 @@
+<<<
+[[section_click_a_checkbox_or_radio_button.adoc]]
+=== *Click a Checkbox or a Radio Button
+[source, javascript]
+----
+checkBox
+radioButton
+----

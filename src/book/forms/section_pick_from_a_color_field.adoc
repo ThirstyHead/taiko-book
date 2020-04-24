@@ -1,0 +1,7 @@
+<<<
+[[section_pick_from_a_color_field.adoc]]
+=== *Pick from a Color Field
+[source, javascript]
+----
+color
+----
