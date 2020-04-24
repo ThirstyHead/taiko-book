@@ -8,3 +8,4 @@
 
 include::intro/chapter.adoc[]
 include::install/chapter.adoc[]
+include::browser/chapter.adoc[]
