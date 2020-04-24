@@ -1,0 +1,7 @@
+<<<
+[[section_get_chrome_remote_interface_client.adoc]]
+=== *Get Chrome Remote Interface (CRI) Client
+[source, javascript]
+----
+client
+----

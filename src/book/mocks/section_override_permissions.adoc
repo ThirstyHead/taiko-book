@@ -1,0 +1,8 @@
+<<<
+[[section_override_permissions]]
+=== *Override Permissions
+[source, javascript]
+----
+overridePermissions
+clearPermissionOverrides
+----

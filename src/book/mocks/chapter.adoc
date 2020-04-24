@@ -1,0 +1,18 @@
+[[chapter_mocks]]
+== Mocking and Emulation
+
+In this chapter, you'll learn how to mock network calls and emulate devices and networks.
+
+include::section_intercept_network_calls.adoc[]
+include::section_emulate_a_smartphone.adoc[]
+include::section_emulate_a_slow_network_connection.adoc[]
+include::section_emulate_a_timezone.adoc[]
+include::section_emulate_a_gps_location.adoc[]
+include::section_configure_the_viewport.adoc[]
+include::section_set_global_configurations.adoc[]
+include::section_set_cookies.adoc[]
+include::section_override_permissions.adoc[]
+include::section_get_chrome_remote_interface_client.adoc[]
+include::section_run_a_custom_script_on_a_selected_element.adoc[]
+include::section_wait_for_an_element_or_condition.adoc[]
+

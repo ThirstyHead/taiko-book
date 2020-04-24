@@ -1,0 +1,8 @@
+<<<
+[[section_set_global_configurations.adoc]]
+=== *Set Global Configurations
+[source, javascript]
+----
+setConfig
+getConfig
+----

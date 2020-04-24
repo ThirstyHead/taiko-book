@@ -1,0 +1,7 @@
+<<<
+[[section_configure_the_viewport.adoc]]
+=== *Configure the Viewport
+[source, javascript]
+----
+setViewPort
+----

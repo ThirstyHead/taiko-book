@@ -1,0 +1,7 @@
+<<<
+[[section_emulate_a_smartphone.adoc]]
+=== *Emulate a Smartphone
+[source, javascript]
+----
+emulateDevice
+----

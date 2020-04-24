@@ -1,0 +1,7 @@
+<<<
+[[section_wait_for_an_element_or_condition.adoc]]
+=== *Wait for an Element or Condition
+[source, javascript]
+----
+waitFor
+----

@@ -1,0 +1,8 @@
+<<<
+[[section_intercept_network_calls]]
+=== *Intercept Network Calls
+[source, javascript]
+----
+intercept
+clearIntercept
+----

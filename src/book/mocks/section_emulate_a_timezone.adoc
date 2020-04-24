@@ -1,0 +1,7 @@
+<<<
+[[section_emulate_a_timezone.adoc]]
+=== *Emulate a Timezone
+[source, javascript]
+----
+emulateTimezone
+----

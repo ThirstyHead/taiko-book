@@ -1,0 +1,9 @@
+<<<
+[[section_set_cookies.adoc]]
+=== *Set Cookies
+[source, javascript]
+----
+setCookies
+getCookies
+deleteCookies
+----

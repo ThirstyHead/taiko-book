@@ -1,0 +1,7 @@
+<<<
+[[section_emulate_a_gps_location.adoc]]
+=== *Emulate a GPS Location
+[source, javascript]
+----
+setLocation
+----

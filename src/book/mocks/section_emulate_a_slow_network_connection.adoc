@@ -1,0 +1,7 @@
+<<<
+[[section_emulate_a_slow_network_connection.adoc]]
+=== *Emulate a Slow Network Connection
+[source, javascript]
+----
+emulateNetwork
+----
