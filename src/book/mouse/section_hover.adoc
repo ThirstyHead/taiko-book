@@ -1,0 +1,7 @@
+<<<
+[[section_hover.adoc]]
+=== *Hover
+[source, javascript]
+----
+hover
+----

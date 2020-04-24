@@ -1,0 +1,6 @@
+<<<
+[[section_]]
+=== *title
+[source, javascript]
+----
+----

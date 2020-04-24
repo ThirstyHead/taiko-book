@@ -1,0 +1,7 @@
+<<<
+[[section_drag_and_drop.adoc]]
+=== *Drag and Drop
+[source, javascript]
+----
+dragAndDrop
+----

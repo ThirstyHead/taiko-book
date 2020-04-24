@@ -1,0 +1,8 @@
+<<<
+[[section_click_or_tap.adoc]]
+=== *Click or Tap
+[source, javascript]
+----
+click
+tap
+----

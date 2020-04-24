@@ -1,0 +1,7 @@
+<<<
+[[section_doubleclick.adoc]]
+=== *Doubleclick
+[source, javascript]
+----
+doubleClick
+----

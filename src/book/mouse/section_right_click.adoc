@@ -1,0 +1,7 @@
+<<<
+[[section_right_click.adoc]]
+=== *Right click
+[source, javascript]
+----
+rightClick
+----

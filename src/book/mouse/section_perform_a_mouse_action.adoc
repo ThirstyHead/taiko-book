@@ -1,0 +1,7 @@
+<<<
+[[section_perform_a_mouse_action.adoc]]
+=== *Perform a Mouse Action
+[source, javascript]
+----
+mouseAction
+----

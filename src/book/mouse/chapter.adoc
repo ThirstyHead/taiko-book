@@ -1,0 +1,13 @@
+[[chapter_mouse]]
+== Performing Mouse and Tap Actions
+
+In this chapter, you'll learn how to perform mouse and tap actions.
+
+include::section_click_or_tap.adoc[]
+include::section_doubleclick.adoc[]
+include::section_right_click.adoc[]
+include::section_hover.adoc[]
+include::section_drag_and_drop.adoc[]
+include::section_perform_a_mouse_action.adoc[]
+
+
