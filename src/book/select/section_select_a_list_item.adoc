@@ -1,0 +1,7 @@
+<<<
+[[section_select_a_list_item.adoc]]
+=== *Select a List Item
+[source, javascript]
+----
+listItem
+----

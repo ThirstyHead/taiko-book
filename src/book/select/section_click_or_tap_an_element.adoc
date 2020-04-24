@@ -1,0 +1,8 @@
+<<<
+[[section_click_or_tap_an_element]]
+=== *Click or Tap an Element
+[source, javascript]
+----
+click
+tap
+----

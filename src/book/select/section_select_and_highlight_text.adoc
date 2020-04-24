@@ -1,0 +1,9 @@
+<<<
+[[section_select_and_highlight_text]]
+=== *Select and Highlight Text
+[source, javascript]
+----
+text
+highlight
+clearHighlight
+----

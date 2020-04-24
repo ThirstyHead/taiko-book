@@ -1,0 +1,13 @@
+[[chapter_select]]
+== Selecting Elements on the Page
+
+In this chapter, you'll learn how to select elements on the page. 
+
+include::section_click_or_tap_an_element.adoc[]
+include::section_click_a_link_or_button.adoc[]
+include::section_select_an_element_near_another.adoc[]
+include::section_select_and_highlight_text.adoc[]
+include::section_select_an_image.adoc[]
+include::section_select_a_list_item.adoc[]
+include::section_select_a_table_cell.adoc[]
+include::section_select_an_element_by_class_or_id.adoc[]

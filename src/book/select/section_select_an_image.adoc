@@ -1,0 +1,7 @@
+<<<
+[[section_select_an_image]]
+=== *Select an Image
+[source, javascript]
+----
+image
+----

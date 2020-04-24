@@ -1,0 +1,8 @@
+<<<
+[[section_click_a_link_or_button]]
+=== *Click a Link or Button
+[source, javascript]
+----
+link
+button
+----

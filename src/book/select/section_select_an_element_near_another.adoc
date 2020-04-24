@@ -1,0 +1,11 @@
+<<<
+[[section_select_an_element_near_another]]
+=== *Select an Element Near Another
+[source, javascript]
+----
+near
+above
+below
+toLeftOf
+toRightOf
+----

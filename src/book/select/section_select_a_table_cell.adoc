@@ -1,0 +1,7 @@
+<<<
+[[section_select_a_table_cell.adoc]]
+=== *Select a Table Cell
+[source, javascript]
+----
+tableCell
+----
