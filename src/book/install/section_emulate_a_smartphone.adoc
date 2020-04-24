@@ -1,0 +1,57 @@
+
+<<<
+[[section_emulate_a_smartphone]]
+=== Emulate a Smartphone
+[source, shell]
+----
+$ taiko --observe 
+        --emulate-device 'iPhone X' 
+        --emulate-network 'Regular3G' 
+        visit-wikipedia.js
+
+ ✔ Browser opened with viewport iPhone X
+ ✔ Device emulation set to iPhone X
+ ✔ Set network emulation with values "Regular3G"
+ ✔ Navigated to URL http://wikipedia.org
+ ✔ Device emulation set to iPhone X
+ ✔ Browser closed
+----
+
+When you run Taiko on your desktop computer, it opens a desktop browser and runs at full network speed. If you'd like Taiko to emulate a different kind of device, use the `--emulate-device` and `--emulate-network` command-line flags. 
+
+To find the available values for these flags, type `taiko --help`.
+
+For a better understanding of what these flags do, you can look at the JavaScript files that supply the values in devices.jsfootnote:[https://github.com/getgauge/taiko/blob/master/lib/data/devices.js] and networkConditions.jsfootnote:[https://github.com/getgauge/taiko/blob/master/lib/data/networkConditions.js] on GitHubfootnote:[https://github.com/getgauge/taiko].
+
+Here is the code for `iPhone X` device emulation:
+[source, javascript]
+----
+  'iPhone X': {
+    userAgent:
+      'Mozilla/5.0 (iPhone; CPU iPhone OS 11_0 like Mac OS X) AppleWebKit/604.1.38 (KHTML, like Gecko) Version/11.0 Mobile/15A372 Safari/604.1',
+    viewport: {
+      width: 375,
+      height: 812,
+      deviceScaleFactor: 3,
+      isMobile: true,
+      hasTouch: true,
+      isLandscape: false,
+    },
+  },
+----
+
+The emulation code sets a device-specific User-Agent string, and adjusts the size and characteristics of the screen.
+
+Here is the code for `Regular3G` network emulation:
+[source, javascript]
+----
+  Regular3G: {
+    offline: false,
+    downloadThroughput: (750 * 1024) / 8,
+    uploadThroughput: (250 * 1024) / 8,
+    latency: 100,
+  },
+----
+
+The emulation code throttles download and upload speeds, as well as adding some artificial latency. 
+

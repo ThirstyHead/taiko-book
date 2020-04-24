@@ -1,0 +1,18 @@
+<<<
+[[section_run_taiko_in_an_alternate_browser]]
+=== Run Taiko in an Alternate Browser
+[source, shell]
+----
+$ TAIKO_BROWSER_PATH=/Applications/Opera.app/Contents/MacOS/Opera 
+  taiko visit-wikipedia.js
+
+✔ Browser opened
+ ✔ Navigated to URL http://wikipedia.org
+ ✔ Browser closed
+----
+
+When you install Taiko, it ships with a known-good version of Chromium -- one that won't auto-update and inadvertently break your tests. But you might want to use Taiko to drive an alternate Chromium-based browser, like Google Chrome, Opera, or Microsoft Edge. To do so, simply create a `TAIKO_BROWSER_PATH` environment variable that contains the path to the browser you'd like Taiko to use.
+
+NOTE: Taiko uses the Chrome DevTools Protocol (CDP) to communicate with the browser. This is the same protocol that the Google Chrome DevTools use, as well as Lighthouse (for reporting) and Puppeteer (a similar tool to Taiko written by Google). As of this writing, neither Firefox nor Safari support CDP-based communications. For an alternate way to drive non-CDP browsers, look at the WebDriverfootnote:[https://www.w3.org/TR/webdriver2/] W3C initiative. 
+
+

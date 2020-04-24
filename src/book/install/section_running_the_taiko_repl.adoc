@@ -1,0 +1,32 @@
+<<<
+[[section_running_the_taiko_repl]]
+=== Running the Taiko REPL
+[source, shell]
+----
+$ taiko
+
+Version: 1.0.7 (Chromium:81.0.3994.0)
+Type .api for help and .exit to quit
+
+> openBrowser()
+ ✔ Browser opened
+> goto('wikipedia.org')
+ ✔ Navigated to URL http://wikipedia.org
+> click('Search')
+ ✔ Clicked element matching text "Search" 1 times
+> write('User (computing)')
+ ✔ Wrote User (computing) into the focused element.
+> press('Enter')
+ ✔ Pressed the Enter key
+> click('Terminology')
+ ✔ Clicked element matching text "Terminology" 1 times
+> closeBrowser()
+ ✔ Browser closed
+> .exit 
+----
+
+The Taiko REPL (Read Evaluate Print Loop) is an interactive terminal shell that allows you to experiment with a live browser. When you type `openBrowser()`, a browser window should open on your computer. When you type `goto('wikipedia.org')`, you should end up on the Wikipedia website. 
+
+The Taiko REPL is the perfect way to experiment with Taiko whether you are brand new to the DSL or an experienced user. Once you are confident that your code works (because you've just watched it work), you can save it and run it outside of the REPL, either manually or as a part of your automated CD pipeline. 
+
+
