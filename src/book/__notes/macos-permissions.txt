@@ -1,0 +1,19 @@
+
+
+To disable permissions dialog box for Chromium installed with Taiko:
+
+https://github.com/puppeteer/puppeteer/issues/4752
+
+Keychain Access > Certificate Assistant > Create a Certificate
+
+Name: TaikoChromium
+Identity Type: Self Signed Root
+Certificate Type: Code Signing
+
+Click "Create"
+
+Drag cert from "login" to "System"
+
+sudo codesign -s TaikoChromium -f /Users/scott/.nvm/versions/node/v12.14.1/lib/node_modules/
+taiko/.local-chromium/mac-724157/chrome-mac/Chromium.app --deep
+
