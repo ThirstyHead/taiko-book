@@ -1,0 +1,19 @@
+{
+  "name": "taiko-book",
+  "version": "0.1.0",
+  "description": "This books takes a very practical, code-first approach to solving common problems using Taiko, a browser-automation DSL.",
+  "main": "index.js",
+  "scripts": {
+    "start": "asciidoctor-pdf --source-dir=./src/book --destination-dir=./dist -a pdf-themesdir=./src/book/__theme -a pdf-theme=book ./src/book/book.adoc"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ThirstyHead/taiko-book.git"
+  },
+  "author": "Scott Davis <scott@thirstyhead.com> (https://thirstyhead.com/)",
+  "license": "CC-BY-4.0",
+  "bugs": {
+    "url": "https://github.com/ThirstyHead/taiko-book/issues"
+  },
+  "homepage": "https://github.com/ThirstyHead/taiko-book#readme"
+}
