@@ -967,7 +967,7 @@ p a>code:hover {
   margin-top: 0;
   margin-bottom: 0;
   max-width: 42em;
-  *zoom: 1;
+  margin: 0 auto;
   position: relative;
   padding-left: 0.9375em;
   padding-right: 0.9375em;
