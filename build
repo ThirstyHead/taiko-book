@@ -1,0 +1,17 @@
+#!/usr/bin/env node
+
+const Asciidoctor = require('asciidoctor')
+const converter = Asciidoctor();
+
+converter.convertFile('src/book/book.adoc', 
+  { safe: 'safe', 
+    'to_file': 'src/book/index.html',
+    attributes: { 
+      linkcss: true,
+      'toclevels': 1,
+      stylesheet: 'styles.css',
+      stylesdir: '__theme/html',
+    } 
+  })
+
+

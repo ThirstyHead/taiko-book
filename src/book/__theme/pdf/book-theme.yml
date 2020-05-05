@@ -1,0 +1,63 @@
+# https://github.com/asciidoctor/asciidoctor-pdf/blob/master/docs/theming-guide.adoc
+
+page:
+  layout: portrait
+  margin: [0.75in, 1in, 0.75in, 1in]
+  size: Letter
+
+base:
+  font-color: #333333
+  font-family: Times-Roman
+  font-size: 12
+  line-height-length: 17
+  line-height: $base-line-height-length / $base-font-size
+
+vertical-spacing: $base-line-height-length
+
+heading:
+  font-color: #262626
+  font-size: 17
+  font-style: bold
+  line-height: 1.2
+  margin-bottom: $vertical-spacing
+  chapter:
+    break-before: always
+
+link:
+  font-color: #002FA7
+
+outline-list:
+  indent: $base-font-size * 1.5
+
+footer:
+  height: $base-line-height-length * 2.5
+  line-height: 1
+  recto:
+    center:
+      content: '{page-number}'
+    right:
+      content: ~
+  verso:
+    center:
+      content: $footer-recto-center-content
+    left:
+      content: ~
+
+title-page:
+  background-image: title-cover.jpg
+  align: right
+  title:
+    font-color: #000000
+    font-size: 50
+    font-style: bold
+    top: 2%
+  subtitle:
+    font-color: #FFFFFF
+    font-size: 30
+    font-style: italic
+  authors:
+    font-color: #000000
+    font-size: 20
+    font-style: bold
+    margin-top: 15
+
