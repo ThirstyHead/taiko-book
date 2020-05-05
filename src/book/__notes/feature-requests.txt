@@ -1,0 +1,74 @@
+Taiko Feature Requests
+
+
+## Load a Profile
+I would like to describe a "profile" in a JSON file and a command-line flag to load it.
+
+taiko --load-profile=iphone7
+
+ALSO: loadProfile('path/to/profile.json')
+
+The profile would include:
+* emulateDevice
+* emulateNetwork
+* emulateTimezone
+* setLocation
+* setViewPort
+* setConfig
+* setCookie
+* overridePermissions
+
+Also (not currently supported in Taiko, but available in https://chromedevtools.github.io/devtools-protocol/tot/Emulation/, so technically available via taiko.client)
+* setTouchEmulationEnabled
+* setUserAgentOverride
+* resetPageScaleFactor
+* setCPUThrottlingRate
+* setEmitTouchEventsForMouse
+* setPageScaleFactor
+* setNavigatorOverrides
+* setVisibleSize
+
+ANSWER: search taiko envirnoment variables
+
+
+
+
+
+## Screen Zoom
+There doesn't appears to be a way in Taiko to zoom in the screen (like a two-finger stretch on a smartphone). 
+
+This would be helpful for emulating a smartphone user. It would also aid in screen recordings for the Taiko book/website.
+
+Is there a chrome flag for zoom? --set-zoom-level or something...
+
+
+
+
+## Make chrome command-line flags pass-thru from Taiko
+Can Chrome command-line flags (--window-position, --window-size) be passed to Taiko at the command line and then passed-through to Chrome?
+
+taiko --observe --window-position --window-size
+
+SOLUTION: TAIKO_BROWSER_ARGS
+
+
+
+
+
+
+
+## Ship Taiko with self-signed cert
+Every time Taiko invokes the included Chromium, an "accept/deny incoming network requests" dialog appears on MacOS. If Taiko includes a self-signed certificate, the end user can "accept" the cert and suppress the dialog.
+
+See macos-permissions.txt for details.
+
+
+
+
+
+
+
+
+
+
+
