@@ -14,16 +14,7 @@
 [source, javascript]
 .In a script
 ----
-const { openBrowser, closeBrowser } = require('taiko');
-(async () => {
-    try {
-        await openBrowser();
-    } catch (error) {
-        console.error(error);
-    } finally {
-        await closeBrowser();
-    }
-})();
+include::section_open_and_close_a_browser.js[]
 ----
 
 [[img_open_and_close_a_browser]]
