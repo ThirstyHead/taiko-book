@@ -2,37 +2,21 @@
 
 @font-face {
   font-family: 'PoppinsLatin-Bold';
-  src: url('../fonts/poppins-latin/Poppins-Bold.ttf') format('truetype'),
-       url('../fonts/poppins-latin/Poppins-Bold.otf') format('opentype');
+  src: url('fonts/poppins-latin/Poppins-Bold.ttf') format('truetype'),
+       url('fonts/poppins-latin/Poppins-Bold.otf') format('opentype');
 }
 
 @font-face {
   font-family: 'PoppinsLatin-Medium';
-  src: url('../fonts/poppins-latin/Poppins-Medium.ttf') format('truetype'),
-       url('../fonts/poppins-latin/Poppins-Medium.otf') format("opentype");
+  src: url('fonts/poppins-latin/Poppins-Medium.ttf') format('truetype'),
+       url('fonts/poppins-latin/Poppins-Medium.otf') format("opentype");
 }
 
 @font-face {
   font-family: 'PoppinsLatin-SemiBold';
-  src: url('../fonts/poppins-latin/PoppinsLatin-SemiBold.ttf') format('truetype'),
-       url('../fonts/poppins-latin/PoppinsLatin-SemiBoldItalicm.otf') format("opentype");
+  src: url('fonts/poppins-latin/PoppinsLatin-SemiBold.ttf') format('truetype'),
+       url('fonts/poppins-latin/PoppinsLatin-SemiBoldItalicm.otf') format("opentype");
 }
-
-@font-face {
-  font-family: 'OpenSans-Regular';
-  src: url('../fonts/open-sans/OpenSans-Regular.ttf') format('truetype');
-}
-
-@font-face {
-  font-family: 'OpenSans-SemiBold';
-  src: url('../fonts/open-sans/OpenSans-Semibold.ttf') format('truetype');
-}
-
-@font-face {
-  font-family: 'OpenSans-Bold';
-  src: url('../fonts/open-sans/OpenSans-Bold.ttf') format('truetype');
-}
-
 
 /* Derived from the Riak documentation theme developed by Basho Technologies, Inc. | CC BY 3.0 License | http://docs.basho.org */
 
@@ -966,7 +950,8 @@ p a>code:hover {
 #footer {
   margin-top: 0;
   margin-bottom: 0;
-  max-width: 42em;
+  text-align: justify;
+  max-width: 52em;
   margin: 0 auto;
   position: relative;
   padding-left: 0.9375em;
