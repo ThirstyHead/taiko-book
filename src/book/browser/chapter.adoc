@@ -4,7 +4,7 @@
 In this chapter, you'll learn how to open and close a browser, open and close tabs, and take a screenshot.
 
 include::section_open_and_close_a_browser.adoc[]
-include::section_open_a_browser_with_a_specific_screen_size.adoc[]
+include::section_open_a_browser_with_a_specific_window_size.adoc[]
 include::section_goto_a_url.adoc[]
 include::section_open_and_close_a_tab.adoc[]
 include::section_open_and_close_an_incognito_window.adoc[]

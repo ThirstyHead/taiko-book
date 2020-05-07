@@ -1,0 +1,33 @@
+<<<
+[[section_open_a_browser_with_a_specific_window_size]]
+=== Open a Browser with a Specific Window Size
+[source, javascript]
+.In the REPL                                             
+----
+> openBrowser({args:['--window-size=1024,768']})
+ ✔ Browser opened
+----
+ 
+[source, javascript]
+.In a script
+----
+const { openBrowser, closeBrowser } = require('taiko');
+(async () => {
+    try {
+        await openBrowser({args:['--window-size=1024,768']});
+    } catch (error) {
+        console.error(error);
+    } finally {
+        await closeBrowser();
+    }
+})();
+----
+
+[[img_open_a_browser_with_a_specific_window_size]]
+.`openBrowser` accepts any Chrome command line switches, including `--window-size` and `--window-position`
+image::browser/section_open_and_close_a_browser.png[A new browser window with the window size and position as specified]
+
+If you are testing your website across multiple platforms (desktop, tablet, smartphone, smart TV, etc.), then you'll need the ability to test across multiple window sizes. The `openBrowser` action accepts a JSON argument with an array of `args`. Any command line switch that you'd normally pass into Chrome can be passed into `openBrowser` using the `args` array. 
+
+NOTE: You can pass in a comma-separated list of command line switches to `args`. For example, `openBrowser({args:['--window-size=1024,768', '--window-position=2048,0']})`. For a full list of Chrome command line switches, see https://peter.sh/experiments/chromium-command-line-switches/. 
+
