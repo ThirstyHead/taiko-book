@@ -23,7 +23,9 @@ image::browser/section_open_and_close_a_browser.png[A new browser window with a 
 
 Every Taiko action assumes that you have an open, active browser window as the result of an `openBrowser` call. You'll also want to close the browser window at the end of your Taiko script by calling `closeBrowser`.
 
-The `.code` output shows you one way to structure your code in a standard JavaScript `try/catch/finally` block. The `finally` block ensures that the browser window closes at the end of the script run, regardless of whether the run was successful (`try`) or encountered errors along the way (`catch`).
+NOTE: If you are typing these examples yourself in the Taiko REPL, you can type `.code` to view the script output, or type `.code name-of-your-file.js` to save the code to a filename of your choice in the current working directory.  
+
+The script example shows you one way to structure your code in a standard JavaScript `try/catch/finally` block. The `finally` block ensures that the browser window closes at the end of the script run, regardless of whether the run was successful (`try`) or encountered errors along the way (`catch`).
 
 NOTE: All Taiko actions are asynchronous. When running Taiko in a script outside of the REPL, be sure to mark the function as `async` and preceed each Taiko action with `await` to ensure that it has fully completed before the next Taiko action is called.  
 
