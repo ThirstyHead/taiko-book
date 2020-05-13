@@ -1,12 +1,65 @@
 <<<
 [[section_goto_a_url]]
-=== *Goto a URL
+=== Goto a URL
 [source, javascript]
+.In the REPL
 ----
-goto
+> openBrowser()
+ ✔ Browser opened
+> goto('https://thirstyhead.com/conferenceworks/')
+ value: {
+  url: 'https://thirstyhead.com/conferenceworks/',
+  status: { code: 200, text: '' }
+}
+----
+
+[source, javascript]
+.In a script
+----
+include::section_goto_a_url.js[]
+----
+
+[[img_goto_a_url]]
+.`goto(URL)` visits the URL, just like a user typing the URL into the address bar.
+image::browser/section_goto_a_url.png[A browser showing the website.]
+
+Once you have a browser window open, you'll almost certainly want to visit a website by using the `goto(URL)` action. This action returns a `value` object that contains the `url` you visited, as well as a `status` object that represents the HTTP response from the website. 
+
+The `goto(URL)` action accepts any partial URL fragment that the underlying browser does. For example, if you type `goto('thirstyhead.com/conferenceworks')`, notice that three separate HTTP GET requests are sent:
+
+. The first HTTP response is a `301` redirect to upgrade the request from an unsecure `http` address to a secure `https` one. 
+. The second HTTP response is another `301` redirect, this time to include the trailing `/` in the URL (indicating that `conferenceworks` is a directory instead of a file).
+. The third HTTP response is a `200`, showing us the final successful HTTP request for the implicit `index.html` file in the `/conferenceworks/` directory. 
+
+[source, javascript]
+.`goto(URL)` accepts URL fragments and follows HTTP redirects.
+----                   
+> openBrowser()                                 
+ ✔ Browser opened                                        
+> goto('thirstyhead.com/conferenceworks')      
+ value: {
+  redirectedResponse: [
+    {
+      url: 'http://thirstyhead.com/conferenceworks',
+      status: { code: 301, text: 'Moved Permanently' }
+    },
+    {
+      url: 'https://thirstyhead.com/conferenceworks',
+      status: { code: 301, text: '' }
+    }
+  ],
+  url: 'https://thirstyhead.com/conferenceworks/',
+  status: { code: 200, text: '' }
+}
+----
+
+NOTE: This series of `HTTP` redirects is the normal behavior of the Chromium browser, and of all browsers in general.   
+
+
+////
 goBack
 goForward
 reload
 currentURL
 title
-----
+////

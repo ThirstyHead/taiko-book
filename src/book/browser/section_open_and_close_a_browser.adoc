@@ -19,7 +19,7 @@ include::section_open_and_close_a_browser.js[]
 
 [[img_open_and_close_a_browser]]
 .`openBrowser` opens a new browser window with a single empty new tab.
-image::browser/section_open_and_close_a_browser.png[A new browser window with a singel empty new tab]
+image::browser/section_open_and_close_a_browser.png[A new browser window with a single empty new tab]
 
 Every Taiko action assumes that you have an open, active browser window as the result of an `openBrowser` call. You'll also want to close the browser window at the end of your Taiko script by calling `closeBrowser`.
 
