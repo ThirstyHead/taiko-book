@@ -70,8 +70,30 @@ Taiko also provides proximity selectors, like `toRightOf` and `below`. Here's a 
 * toRightOf
 * near
 
-`click('Register')` and `click(link('Register', toLeftOf(text('now before this event sells out'))))` are functionally equivalent.
+The Taiko actions `click('Register')` and `click(link('Register', toLeftOf(text('now before this event sells out'))))` are functionally equivalent.
 
+
+==== Smart Selectors and Shadow DOM
+
+Sometimes, a user can see an element on screen that isn't selectable programmatically by Taiko. A common example of this is when a web developer includes a Web Component that uses a Shadow DOM. As the name implies, a Shadow DOM is a separate DOM tree that is hidden from the main DOM, as well as any JavaScript outside of the Web Component. (For more information on Shadow DOM, see https://developer.mozilla.org/en-US/docs/Web/Web_Components/Using_shadow_DOM['Using Shadow DOM' on MDN].)
+
+The ConferenceWorks website uses a Web Component named `&lt;cw-header&gt;` to encapsulate and reuse the header across multiple pages. This header contains two links: `SCHEDULE` and `SPEAKERS`. Since Shadow DOM makes these links invisible to JavaScript outside of the Web Component, they are invisible to Taiko as well. 
+
+[source, javascript]
+.Shadow DOM elements are invisible to Taiko's Smart Selectors
+----
+> openBrowser()
+ ✔ Browser opened
+> goto('https://thirstyhead.com/conferenceworks/')
+ ✔ Navigated to URL https://thirstyhead.com/conferenceworks/
+> click('SPEAKERS')
+ ✘ Error: Element with text SPEAKERS not found, run `.trace` for more info.
+> link('SPEAKERS').exists()
+ value: false
+ ✔ Does not exists
+----
+
+In this case, you can simply use `goto('https://thirstyhead.com/conferenceworks/speakers/')` in your script instead of attempting (and failing, due to the Shadow DOM contract with the browser) to click on the link programmatically. 
 
 
 ////
