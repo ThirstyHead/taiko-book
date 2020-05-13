@@ -12,3 +12,19 @@ to
 into
 press
 ----
+
+If you find yourself having to use more complex selectors, once again, you should use that  as an opportunity to re-evaluate and simplify your design.
+
+For example, well-written, semantically correct, accessible HTML form fields link the `&lt; label&gt;` to the `&lt;input&gt;` using the `for` attribute of the `&lt;label&gt;` and the  `id` of the `&lt;input&gt;`.
+                                                            
+[source, html]                                              
+.Associating a label with an input field using the `for` attribute                         
+----          
+<label for="firstname">First Name</label>            
+<input id="firstname" name="firstname" type="text" placeholder="Jane" required>         
+----
+
+
+
+
+

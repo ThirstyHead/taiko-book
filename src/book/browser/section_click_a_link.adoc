@@ -1,0 +1,81 @@
+<<<
+[[section_click_a_link]]
+=== Click a Link
+[source, javascript]
+.In the REPL
+----
+> openBrowser()
+ ✔ Browser opened
+> goto('https://thirstyhead.com/conferenceworks/')
+ ✔ Navigated to URL https://thirstyhead.com/conferenceworks/
+> click('Register')
+ ✔ Clicked element matching text "Register" 1 times
+> goBack()
+ ✔ Performed clicking on browser back button
+> goForward()
+ ✔ Performed clicking on browser forward button
+> click('Home')
+ ✔ Clicked element matching text "Home" 1 times
+----
+
+[source, javascript]
+.In a script
+----
+include::section_click_a_link.js[]
+----
+
+[[img_click_a_link]]
+.`click` emulates a user clicking on a link like `Register`, or tabbing to it and pressing `Enter`.
+image::browser/section_click_a_link.png[A browser showing a website with links.]
+
+[[img_click_a_link_2]]
+.The new web page after the `Register` link is clicked on the previous page.
+image::browser/section_click_a_link_2.png[A browser showing a website with links.]
+
+Using the `click(SELECTOR)` action emulates the user clicking on the selected element. You can also use the `goBack` and `goForward` actions to emulate the user clicking on the `Back` and `Forward` browser buttons.
+
+[NOTE]
+====
+Taiko has a sophisticated Smart Selector algorithm that allows you to interact with the web page just like a user would by using _what the user sees on screen_ rather than _what the web developer sees from a source code perspective_. While you can use detailed CSS or XPath selectors, that can lead to brittle tests if the underlying source code changes without changing the visible user experience. 
+
+For example, while `click('Register')` and `click($('body > main > p:nth-child(2) > a'))` are both functionally equivalent, the former is more readable, better represents the user's interaction with the web page, and ultimately will be more maintainable over time. 
+====
+
+==== Semantic and Proximity Selectors
+
+`click(SELECTOR)` eagerly matches the first item on the page. If you have multiple elements on the page -- all with 'Register' as a visual indicator -- the first thing you should do is re-evaluate your design. After that, you can refine your selector with semantic selectors like `click(link('Register'))` or `click(button('Register'))`. 
+
+Here's a list of semantic selectors:
+
+* button
+* checkBox
+* color
+* dropDown
+* fileField
+* image
+* link
+* listItem
+* radioButton
+* range
+* tableCell
+* text
+* textBox
+* timeField
+
+Taiko also provides proximity selectors, like `toRightOf` and `below`. Here's a list of proximity selectors:
+
+* above
+* below
+* toLeftOf
+* toRightOf
+* near
+
+`click('Register')` and `click(link('Register', toLeftOf(text('now before this event sells out'))))` are functionally equivalent.
+
+
+
+////
+reload
+currentURL
+title
+////

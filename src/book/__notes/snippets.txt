@@ -1,1 +1,2 @@
 openBrowser({args:['--window-size=1024,768']})
+goto('https://thirstyhead.com/conferenceworks/')
