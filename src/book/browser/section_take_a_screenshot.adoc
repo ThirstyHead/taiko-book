@@ -1,7 +1,55 @@
 <<<
 [[section_take_a_screenshot]]
-=== *Take a Screenshot
+=== Take a Screenshot
 [source, javascript]
+.In the REPL
 ----
-screenshot
+> openBrowser({args:['--window-size=1024,768']})
+ ✔ Browser opened
+> goto('https://thirstyhead.com/conferenceworks/')
+ ✔ Navigated to URL https://thirstyhead.com/conferenceworks/ 
+> click('Register')
+ ✔ Clicked element matching text "Register" 1 times
+
+> screenshot({path:'form-before-entry.png'})
+ ✔ Screenshot is created at form-before-entry.png
+> click('First Name')
+ ✔ Clicked element matching text "First Name" 1 times
+> write('Suzi')
+ ✔ Wrote Suzi into the focused element.
+> click('Last Name')
+ ✔ Clicked element matching text "Last Name" 1 times
+> write('Q')
+ ✔ Wrote Q into the focused element.
+> click('Email')
+ ✔ Clicked element matching text "Email" 1 times
+> write('suzi@q.org')
+ ✔ Wrote suzi@q.org into the focused element.
+> click('Phone')
+ ✔ Clicked element matching text "Phone" 1 times
+> write('3035551212')
+ ✔ Wrote 3035551212 into the focused element.
+> screenshot({path:'form-after-entry.png'})
+ ✔ Screenshot is created at form-after-entry.png
 ----
+
+[source, javascript]
+.In a script
+----
+include::section_take_a_screenshot.js[]
+----
+
+[[img_take_a_screenshot]]
+.`form-before-entry.png` captured using Taiko action `screenshot()`
+image::browser/form-before-entry.png[Screenshot of form before data entry]
+
+.`form-after-entry.png` captured using Taiko action `screenshot()`
+image::browser/form-after-entry.png[Screenshot of form after data entry]
+
+The ability to capture screenshots at key points in your Taiko script helps illustrate the User Journey you are automating. The `screenshot()` action with no arguments creates a PNG image in the current directory named `Screenshot-1589490638953.png`. The last half of the filename is a timestamp.
+
+You'll almost certainly want to give your screenshot a more descriptive name, like `screenshot({path:'form-before-entry.png'})` or `screenshot({path:'form-after-entry.png'})`. In this example, we are capturing a screenshot of an HTML form before data entry begins, and then another screenshot after data entry is complete.   
+
+
+
+
