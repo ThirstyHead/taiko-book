@@ -1,8 +1,45 @@
 <<<
-[[section_open_and_close_an_incognito_window.adoc]]
-=== *Open and Close an Incognito Window
+[[section_open_and_close_an_incognito_window]]
+=== Open and Close an Incognito Window
 [source, javascript]
+.In the REPL
 ----
-openIncognitoWindow
-closeIncognitoWindow
+> openBrowser()
+ ✔ Browser opened
+> openIncognitoWindow('https://thirstyhead.com/conferenceworks/', 
+                      {name:'New Incognito Window'})
+ ✔ Incognito window opened with name New Incognito Window
+> closeIncognitoWindow('New Incognito Window')
+ ✔ Window with name New Incognito Window closed
+----
+
+[source, javascript]
+.In a script
+----
+include::section_open_and_close_an_incognito_window.js[]
+----
+
+[[img_open_and_close_an_incognito_window]]
+.Open a new Incognito window with `openIncognitoWindow`.
+image::browser/section_open_and_close_an_incognito_window.png[Two browser windows open.]
+
+
+The Taiko action `openIncognitoWindow` allows you to run your scripts in an Incognito window instead of a standard window. Two arguments are required to open a new Incognito window -- a URL and a window name: `openIncognitoWindow('https://thirstyhead.com/conferenceworks/', {name:'New Incognito Window'})`.
+
+The window name is especially important, because it is required to close an Incognito window: `closeIncognitoWindow('New Incognito Window')`. 
+
+You should probably store the window name in a constant or variable so that you can use it later to close the Incognito window.
+
+[source, javascript]      
+.Be sure to store the name of your new Incognito window so that you can close it later                                   
+----             
+> openBrowser()                                                   
+ ✔ Browser opened                                                 
+
+> const windowName = 'Private Window'
+> const windowURL = 'https://thirstyhead.com/conferenceworks/'
+> openIncognitoWindow(windowURL, {name:windowName})
+ ✔ Incognito window opened with name Private Window
+> closeIncognitoWindow(windowName)
+ ✔ Window with name Private Window closed
 ----

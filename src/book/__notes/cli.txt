@@ -1,0 +1,5 @@
+TAIKO_BROWSER_ARGS=--window-size=1024,768,--window-position=2048,0 taiko --observe simple.js
+TAIKO_BROWSER_ARGS=--window-size=1024,768 taiko --observe simple.js
+TAIKO_BROWSER_ARGS=--window-position=2048,0 taiko --observe simple.js
+
+TAIKO_BROWSER_ARGS=--incognito taiko --observe simple.js
