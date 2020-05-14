@@ -17,3 +17,8 @@ Drag cert from "login" to "System"
 sudo codesign -s TaikoChromium -f /Users/scott/.nvm/versions/node/v12.14.1/lib/node_modules/
 taiko/.local-chromium/mac-724157/chrome-mac/Chromium.app --deep
 
+
+sudo codesign -s TaikoChromium -f /Users/scott/.nvm/versions/node/v12.14.1/lib/node_modules/taiko/.local-chromium/mac-762701/chrome-mac/Chromium.app --deep
+mac-762701
+
+

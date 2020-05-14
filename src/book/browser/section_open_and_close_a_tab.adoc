@@ -1,9 +1,51 @@
 <<<
 [[section_open_and_close_a_tab]]
-=== *Open and Close a Tab
+=== Open and Close a Tab
 [source, javascript]
+.In the REPL
 ----
-openTab
-closeTab
-switchTo
+> openBrowser()
+ ✔ Browser opened
+> goto('https://thirstyhead.com/conferenceworks/')
+ ✔ Navigated to URL https://thirstyhead.com/conferenceworks/
+
+> openTab()
+ ✔ Opened tab with URL http://about:blank
+> closeTab()
+ ✔ Closed current tab matching about:blank
+
+> const cwPageTitle = title()
+> cwPageTitle
+ value: 'ConferenceWorks'
+> openTab('https://thirstyhead.com/groceryworks/')
+ ✔ Opened tab with URL https://thirstyhead.com/groceryworks/
+> const gwURL = currentURL()
+> gwURL
+ value: 'https://thirstyhead.com/groceryworks/'
+> switchTo(cwPageTitle)
+ ✔ Switched to tab matching ConferenceWorks
+> closeTab(gwURL)
+ ✔ Closing last target and browser.
 ----
+
+[source, javascript]                                                                        
+.In a script
+----
+include::section_open_and_close_a_tab.js[]
+----
+
+[[img_open_and_close_a_tab]]
+.Taiko actions `openTab` and `closeTab` allow you to open and close new browser tabs.
+image::browser/section_open_and_close_a_tab.png[A browser with two open tabs.]
+
+As your app grows in complexity, your user might need to have multiple browser tabs open to accomplish certain tasks. The Taiko actions `openTab` and `closeTab` emulate the user opening and closing new tabs.
+
+By default, `openTab()` opens a new, blank tab. If you'd like to open the tab to a specific URL, simply pass in the URL as an argument: `openTab('https://thirstyhead.com/groceryworks/')`. 
+
+As you begin working with tabs in Taiko, you'll quickly discover that being able to grab and store the `title()` of the tab and the `currentURL()` will be quite helpful. This is especially true when it comes to closing tabs. The Taiko action `closeTab()` closes the current tab, unless you pass in the target tab title `closeTab('GroceryWorks')` or the target tab URL `closeTab('https://thirstyhead.com/groceryworks/')`. 
+
+
+
+
+
+
