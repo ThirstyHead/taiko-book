@@ -9,7 +9,7 @@
 include::intro/chapter.adoc[]
 include::install/chapter.adoc[]
 include::browser/chapter.adoc[]
-include::select/chapter.adoc[]
+// include::select/chapter.adoc[]
 include::forms/chapter.adoc[]
 include::mouse/chapter.adoc[]
 include::alerts/chapter.adoc[]
