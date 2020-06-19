@@ -1,8 +1,21 @@
 <<<
 [[section_write_in_a_text_field]]
-=== *Write in a Text Field
+=== Write in a Text Field
 [source, javascript]
+.In the REPL
 ----
+> openBrowser()
+ ✔ Browser opened
+> goto('https://thirstyhead.com/conferenceworks/')
+ ✔ Navigated to URL https://thirstyhead.com/conferenceworks/ 
+> click('Register')
+ ✔ Clicked element matching text "Register" 1 times
+----
+
+----
+----
+
+////
 textBox
 click
 focus
@@ -11,17 +24,62 @@ clear
 to
 into
 press
+////
+
+Taiko makes it easy to interact with HTML forms. You can `click()` on `&lt;label&gt;` elements, `write()` into the associated `&lt;input&gt;` fields, and then `press('Tab')` to move to the next field. To submit the form, you can `click('Submit')` (because the button is an `&lt;input type='submit'&gt;` element), `click(button('Register'))` to more accurately model what the user sees on the screen in this example, or even `press('Enter')`.    
+
+If Taiko doesn't interact with your HTML forms in the same way as shown here, it's worth understanding how this example was built. Chances are you might be using a web framework that behaves differently than the standards-based, browser-native, pure HTML and CSS example presented here. Another possibility is your HTML elements might be lacking some of the semantics that modern browsers expect you to be using. 
+
+The `Register` page of https://thirstyhead.com/conferenceworks/[ConferenceWorks]  offers a simple HTML form with four text input fields and a submit button (labeled `Register` in this example). The text input fields take advantage of HTML's native declarative field validation, so no JavaScript is necessary to ensure that required fields are populated if the `required` attribute is present on the `&lt;input&gt;` elements. Declarative CSS rules like `input:required:valid` and `input:required:invalid` show and hide the corresponding `&lt;span&gt;` elements next to the `&lt;input&gt;` fields that contain the validation messages. 
+
+[source, html]                                              
+.Using the `required` attribute on `&lt;input&gt;` elements in coordination with `input:required:valid` and `input:required:invalid` CSS rules
+----          
+<style>
+  .valid{
+    color: green;
+    display: none;
+  }
+
+  .invalid{
+    color: red;
+    display: none;
+  }
+
+  input:required:valid + .field-message .valid{
+    display: inline;
+  }
+
+  input:required:invalid + .field-message .invalid{
+    display: inline;
+  }
+</style>
+
+<p>
+  <label for="firstname">First Name</label> 
+  <input id="firstname" 
+         name="firstname" 
+         type="text" 
+         placeholder="Jane" 
+         required>
+  <span class="field-message">
+    <span class="valid">&check;</span>
+    <span class="invalid">&cross; Required</span>
+  </span>
+</p>
 ----
 
-If you find yourself having to use more complex selectors, once again, you should use that  as an opportunity to re-evaluate and simplify your design.
+The `First Name` and `Last Name` fields are simple `&lt;input type='text'&gt;` fields. The `Email` field layers on a bit of semantics (and additional validation) by specifying `&lt;input type='email'&gt;`. This ensures that the field conforms to the most basic requirements of an email address: `user@hostname`. If you'd like to enforce a stricter validation rule for email addresses -- for instance, requiring a `.com` or `.org` at the end of the address -- you can provide a `pattern` attribute on the `&lt;input&gt;` field with a declarative Regular Expression (RegEx).
 
-For example, well-written, semantically correct, accessible HTML form fields link the `&lt; label&gt;` to the `&lt;input&gt;` using the `for` attribute of the `&lt;label&gt;` and the  `id` of the `&lt;input&gt;`.
+The `Password` field is a text field with a different set of semantics and behavior. By using `&lt;input type='password'&gt;`, the browser masks all input with dots instead of the actual text of the password, and doesn't allow the `value` to be copied out of the field and pasted somewhere else to reveal the secret content. Operating system-based password managers, as well as third-party password managers, all hook into password fields based on the semantic `&lt;type='password'&gt;` attribute. 
+
+If clicking on your `&lt;label&gt;` element doesn't change the focus to the corresponding `&lt;input&gt;` element, chances are good the two aren't associated with each other. For example, well-written, semantically correct, accessible HTML form fields link the `&lt; label&gt;` to the `&lt;input&gt;` using the `for` attribute of the `&lt;label&gt;` and the `id` of the `&lt;input&gt;`.
                                                             
 [source, html]                                              
 .Associating a label with an input field using the `for` attribute                         
 ----          
 <label for="firstname">First Name</label>            
-<input id="firstname" name="firstname" type="text" placeholder="Jane" required>         
+<input id="firstname" name="fname" type="text" placeholder="Jane" required>         
 ----
 
 

@@ -1,0 +1,6 @@
+Taiko is an open source Node.js library for testing modern web applications. Whatever your user can do in a browser -- visit a web page, fill in the form fields, click on the Submit button -- Taiko can automate in a repeatable way.
+
+In this book, author Scott Davis (Web Architect and Principal Engineer with ThoughtWorks) demonstrates how Taiko empowers you to write User Journey Tests through straightforward examples and a “prove it in code” approach. Each section offers a clear problem to solve, like how to “Emulate a Smartphone”. It then shows you a working code example (“taiko --emulate-device ‘iPhone X’” from the command line, or “emulateDevice(‘iPhone X’)” from inside your test script), complete with an explanation to help you understand why the solution works and how to customize it to solve your problems.
+
+For over 15 years, ThoughtWorkers have been writing and releasing influential open source testing tools like Selenium, WebDriver, RSpec, Cucumber, and Mountebank. If these tools have influenced the way you think about testing, Taiko and User Journey Testing will be welcome additions to your testing toolkit.  
+
