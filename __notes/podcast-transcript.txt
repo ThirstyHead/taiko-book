@@ -1,0 +1,379 @@
+Podcast transcript
+
+
+
+Alexey:
+
+Hello and welcome to the ThoughtWorks Technology podcast. My name is Alexey, I'm the head of technology for ThoughtWorks Brazil and I will be one of your hosts this time together with Ashok who's head of technology for the UK. Hello, Ashok.
+
+
+
+Ashok:
+
+Hello, Alexey. Good to be on the call again. Look forward to discussing the topic of the day.
+
+
+
+Alexey:
+
+Oh, great. And well, we're delighted to have Scott Davis and Zabil with us today. Hello, Scott. Hello, Zabil.
+
+
+
+Scott:
+
+Hello, hello. Thanks for having us this morning.
+
+
+
+Zabil:
+
+Hey, Alexey. Hey, Ashok.
+
+
+
+Alexey:
+
+And Scott, would you mind introducing yourself, telling us a little bit about your background?
+
+
+
+Scott:
+
+Absolutely. I'm a principal engineer and a web architect here at ThoughtWorks. I've spent a considerable amount of time doing web development, both on the backend and the front end, but this is a topic that is really especially near and dear to my heart, the user journey and capturing the user experience. I firmly believe that we can apply the same engineering rigor to front end technologies that we historically and traditionally have to the backend. So, as I said, I'm really excited to be talking about user journey testing with Taiko this morning.
+
+
+
+Alexey:
+
+Great. And how about you, Zabil?
+
+
+
+Zabil:
+
+So I'm a product manager and for the past five years I've been working with a few products. Two of the recent ones being Gauge and Taiko and I've been a developer for most part of my experience. I'm quite passionate about testing and building quality software products that I've been working on is around that.
+
+
+
+Alexey:
+
+Okay, thank you. And well, you did mention Gauge and Taiko, so those are two open source projects that were born inside of ThoughtWorks. I know we're going to talk a little bit about them during our conversation, but would you mind telling us just a little bit what they are?
+
+
+
+Zabil:
+
+Yeah, sure. So both Gauge and Taiko are test automation tools and to keep it short, Gauge is a tool for writing acceptance tests and Taiko is a node-JS library for automating web browsers. So we can put both of them together and use them to test web applications.
+
+
+
+Alexey:
+
+Okay, wonderful. Looking forward to understanding better how that would work out. So Scott, you mentioned user journey testing, and I guess that's the main topic for today. So why don't you start there? What is user journey testing?
+
+
+
+Scott:
+
+Oh, absolutely. So I think many people are probably familiar with this idea of user acceptance testing and language is powerful and it's important. We definitely want the users to accept the code that we're writing. As software engineers, we're not writing this for ourselves, we're writing this for our users. But I really like user journey testing, this phrase, because it captures perfectly what we're trying to accomplish here. A user journey is something like, "Hey, I have to log into this website, add three items to my shopping cart and checkout." That's my user journey right there in a nutshell.
+
+
+
+Scott:
+
+And so what a browser automation tool like Taiko allows us to do is write that user journey, capture it in this really nice high level DSL, or domain specific language. And so if you go to a URL and you click on a login button and you write your username in a field, these are things that we can capture and automate in Taiko. And so this focus on the user journey through your application is very much focusing on the user experience, much like a developer might focus on the developer experience and write unit tests and integration tests to kind of experience the code journey through the application, a user journey test allows us to capture the user's journey through your website, as I said, in this really lovely high level DSL.
+
+
+
+Alexey:
+
+Okay, great. Thank you. So you mentioned unit testing and I would expect some listeners to be familiar with the concept of testing pyramids. Is it fair to say that user journey testing is a part of testing that will sit at the very top of the pyramid and connect and integrate with the other types of testing as a testing strategy?
+
+
+
+Scott:
+
+So the testing pyramid is something that I'm sure many developers who've read up on unit testing at all have seen. The testing pyramid is very broad at the base and that represents unit tests and then as the pyramid gets narrower and narrower, we go through integration testing and finally at the peak is user acceptance testing. The visual metaphor of this testing pyramid is very powerful and it really does a great job of describing the developer experience. The developer's experience is unit testing. They want to make sure that their code is bug free and their APIs are friendly and things like that. So the testing pyramid does a wonderful job of visualizing the developer experience.
+
+
+
+Scott:
+
+What I like thinking of is less of a pyramid and more of a spectrum, one that goes from the DX on one side, the developer experience, to the UX, the user experience, on the other. And by thinking of it as a spectrum, we want to make sure that we are well represented across that spectrum and user journey tests will feel familiar to developers if they're familiar with unit testing. But again, the focus is not on the developer experience and the soundness of code, the bug free nature of code, but it really is focused on the user experience and how they interact with the website rather than how a developer might interact with an API.
+
+
+
+Ashok:
+
+Okay. That's really interesting. So the mindset you would say that needs to be applied when you're thinking of tests in this shape or format towards, as you're describing the spectrum, towards the user experience side of the spectrum. Have you seen a difference in mindset that needs to be applied as you think about either writing unit tests versus writing user journey tests.
+
+
+
+Zabil:
+
+Yeah. That's a very interesting question and I'll try to answer that in terms of the tools and how we've designed Gauge and Taiko. So while the pyramid, like Scott mentioned, talks about developer experience, the existing automation tools are also heavily developer focused, where there is this kind of the concept of a gray box testing, where we need to know the structure of the application that we want to test. So for example, testing an HTML page means knowing what XPath I need to use to click on a specific element or exactly how that element was built in code. And we came to this point because we were looking at testing from a developer perspective. So flipping that and saying that, okay, we need to take a look at the user journey testing perspective will also influence the design of the tools and how they are used according to the user. So that's the difference. So how we code and write those tests are totally different.
+
+
+
+Ashok:
+
+Do you almost have, like try to address who the intended user audience of the test-
+
+
+
+Zabil:
+
+Yes.
+
+
+
+Ashok:
+
+Focus it from their perspective and then use that to drive the design of the tools that you have spoken about.
+
+
+
+Zabil:
+
+Exactly. So it's a very clear separation. So it's not very associated with the test pyramid, but, like Scott mentioned, it's like a spectrum. It's a very different universe altogether.
+
+
+
+Scott:
+
+I think another interesting angle on this. Part of the reason why the test pyramid came to a pointy tip around user journey testing or user acceptance testing is that historically these tools have been amazing in what they were able to accomplish, but they did tend to be fragile, they did tend to be brittle. Many of them were written in a time when we didn't have evergreen browsers that were constantly upgrading. So if you have a third party tool that's trying to wrap a browser that doesn't update out from under you, you can have some stability. But in this era of evergreen browsers that are constantly upgrading, having third party tools try to wrap and encapsulate them did lead to brutal tests and that was frustrating. That frustrated me as a web architect, having these tests that fail, not because our code has changed, but because the underlying assumptions like the browser has changed. That was one of the top considerations when Taiko was being written, was to address this fragility.
+
+
+
+Scott:
+
+And they accomplished it in kind of a very simple, obvious way. If the browser is ever changing, well then not ship Taiko with the browser that doesn't change. So in fact, Taiko ships with Chromium, which is the core of not only the Google Chrome web browser, but also the core of the Opera browser and now even Microsoft Edge. So when you NPM install Taiko, what you end up with is a known good browser that works with Taiko that represents well over two thirds of the market. Now we can point Taiko at other browsers as well, but having this known good stable browser that ships with Taiko really helps address one of the primary reasons why user acceptance testing was kind of worried about and kind of put off to the last, because why put a lot of effort into tests that are going to break for reasons beyond your control?
+
+
+
+Scott:
+
+So even just the nature of the tools we use as developers can change our relationship with these tests. Taiko and Gauge are quite fast and quite stable. And the high level DSL makes it very easy to represent the user journey. So when you put all of these things together, it should make user journey testing appealing to the developer as well.
+
+
+
+Alexey:
+
+Yeah, I was going to ask, so it's interesting because you talk about how the technology has evolved and has enabled brand new things for us to do. On one hand it does sound like the promise of behavior-driven development coming true, because now technology enables that. Is that true to an extent? Because the concepts, they seem to be related. So BDD was trying to approach testing and the interaction with the system from a user's perspective, using the language of the user and things like that. So now it looks like the technology has enabled us to take this to the next level and remove some of the brittleness and the flakiness of the tests and et cetera. Is that what's happening here?
+
+
+
+Zabil:
+
+Maybe, maybe not. So the thing about BDD is, and this is from the people who created BDD and the blogs they have written, they always make it a point to say that it's not about testing. So BDD is about capturing business behavior, the requirements, and managing the requirements and communication within the team. And they consider BDD to be a communication tool, not a testing tool. But Gauge and Taiko take a different perspective. It, again, puts the user into the forefront. And it is focused on testing. And it so happened that specifications are written using markdown because It's plain English (or any spoken language), it's much easier to write tests that way. So although there is no relation to the BDD process, there is, let's say, a kind of an evolution of parts of BDD, but heavily focused on testing.
+
+
+
+Scott:
+
+Yeah, I think that idea of evolution is really important to focus on in these kinds of conversations. ThoughtWorks has a long history in this space. BDD was kind of coined and popularized by a ThoughtWorker named Dan North back in 2003. And so over the course of almost two decades now we've seen this idea expand and involve, as you would hope, but knowing that applications like JBehave and later RBehave, JBehave was implemented in Java, Rbehave implemented in Ruby, and then RSpec. and then Cucumber and Gherkin. All of these are open source projects that came out of ThoughtWorks and came out of the result of ThoughtWorkers working on projects with clients and wanting to have tools that better represented what they were trying to test. Similarly, Jason Huggins was a ThoughtWorker who developed a tool named Selenium back in 2004. And Selenium evolved to include WebDriver, written by another ThoughtWorker, Simon Stewart.
+
+
+
+Scott:
+
+And so all of these represent 20 years, almost nearly 20 years of industry experience trying to run and evoke tests that take the user's perspective into mind. So even though I affectionately say Gauge and Taiko are BDD Selenium plus plus, I mean that affectionately. Because they aren't an extension of those. What I mean is they're an extension of our experience as an organization trying to write user focused tests. And so when Selenium was faced with the flakiness of evergreen browsers, no blame on Selenium at all, just the nature as the technology evolves, Taiko has evolved to address that. And as Zabil mentioned, Cucumber is great, but it is almost like writing haiku. There's a very formalized structure of this "given when, then" kind of mentality. And while I love the intellectual rigor of "given when, then," no users think that way.
+
+
+
+Scott:
+
+Maybe business analysts do, right? Maybe product owners do, but no user is going to say, "Given I have a credit card in my hand and I need groceries in my house, when I drive to the ..." That just doesn't happen that way. And so what Gauge has managed to tap into is this use of markdown, plain English, being able to express the tests in the language of the user. And then Taiko as a browser automation DSL being able to represent the actions of the user. These two technologies, even though they can be used separately, when you use them together, expressing the tests and the language of the user and then being able to automate and represent the actions of the user, make a really compelling combination of two different technologies that work incredibly well together.
+
+
+
+Ashok:
+
+I know you were mentioning the reference through Gauge and Taiko a little bit. You mentioned in Gauge you use the tool to express the user journey in an easy to understand language. You also made a reference that Taiko's actually something that could be run by itself, or it can be adopted separately. What's the relationship and the value that we see, if someone's actually going to adopt these, to start thinking about this mindset of moving towards user journey testing? Is there a bump? Do you think about using one over the other to start with? Or do you say you use both together? What's your vote or recommendation for people thinking about adopting or moving down the path of user journey testing?
+
+
+
+Scott:
+
+So one of the powers of Gauge is that we're expressing these tests in the language of the user, again, in markdown, in plain English. But Gauge is not opinionated as to how you actually execute these tests. Gauge has first-class support for Java as a back end, or Ruby, or C-sharp, or Python, or in fact JavaScript in the form of Taiko. So the power of Gauge is that we can capture these user journey tests in plain English, in markdown, and implement them in the language of your choice. Now, Taiko is very tightly tied to JavaScript. It actually is a Node.js project and it uses the Chrome dev tools protocol, the CDP, the same low-level protocol that the actual Chrome dev tools use in Lighthouse and things like that. So whereas Gauge is more focused on capturing the language of the user and implementing it in the programming language of your choice, Taiko is very firmly rooted in modern JavaScript idioms.
+
+
+
+Scott:
+
+Every action in Taiko is asynchronous. And so these are async functions and you await, await, await each one of these Taiko actions. So another real anti-pattern I see in a lot of these user acceptance user journey testings is, go to URL and sleep for three seconds. And type in a username and password and sleep for another five seconds. And this was a very synchronous, maybe old school first attempt at solving these kinds of problems. But now that we have modern JavaScript that embraces this asynchronous await paradigm, the fact that Taiko embraces this and you do each action and each action takes exactly as long as it needs to take and no longer.
+
+
+
+Scott:
+
+And of course we have timeouts and other things to deal with these kinds of things, but as a web developer and a web architect, being able to express this in JavaScript feels very natural to me. That's the natural language that I think a lot of developers are going to gravitate to. So it makes a lot of sense that Taiko was implemented in JavaScript. Also, arguably the most popular programming language on the planet as well, 10 million JavaScript programmers can't be wrong, right?
+
+
+
+Zabil:
+
+Yes. And the way to think about how they are different and independent is, Taiko is focused on driving the browser, but testing involves other stuff, like having a runner that will run on your scripts that will report what passed and what failed. So that's where Gauge comes in. Gauge is, after writing the specifications in a specific language, it can run those specifications. Now, Taiko can be used with other runners, like Jest or Mocha. But then the thing that we would miss out here is the topic of this podcast, which is the user journey testing part of it.
+
+
+
+Scott:
+
+Absolutely. And I think that's a really important thing to amplify as that thinking of Taiko as a testing library is one particular use case, but not the only use case, it is truly a browser automation tool. So if you need to automate visiting a website, downloading a bunch of images, any of these kinds of things that you might want to do, you can certainly express that in Taiko. But some of the testing aspects of Taiko, being able to intercept network calls, that just lends itself so perfectly to testing. And here's a great example of that. Let's say that you've got your website out there and you've got Google Analytics wired up, and you want to run a series of user journey tests against your production website, but you don't want your Google analytics kind of gummed up with these kinds of testing artifacts.
+
+
+
+Scott:
+
+So Taiko gives you the ability to intercept literally any HTTP call that you make. And in the case of Google Analytics, since this is run client side, you might want to intercept that call to the Google Analytics and just kind of dove null it. Just kind of push it aside and not doing anything interesting with it. But if intercept did only that I'd still be interested, it'd be worth the price of admission, but wait, there's more, you could also intercept and supply your own particular payload. So this all of a sudden becomes a very powerful mocking and stubbing tool as well. And then it's got even kind of the best of both worlds, where it can intercept that request, grab the payload that came from the actual website and just tweak it and in a very simple way, tweak that payload and then pay it on.
+
+
+
+Scott:
+
+So again, in terms of browser automation, there are broad, broad uses, but boy, the use cases for testing and mocking and stubbing make it an especially compelling tool. But when we say it's a testing tool, Taiko doesn't come with its own assertion libraries at all. So it really is meant to be incorporated with your testing library of choice. It really is meant to be incorporated with Jest or with Mocha or with any of these other kinds of libraries. It's meant to automate the browser in a testing scenario, not just test the browser in and of itself.
+
+
+
+Alexey:
+
+Well, that's certainly impressive, the capability of intercepting. So that goes back to what we were talking about, the flakiness and fragility of these user journey testing, and then I have seen situations in which I know small changes to the application would break a large number of tests and then require a lot of work. So could you give me one example of how Taiko provides the sort of resilience to the tests? I don't know, one thing that comes to mind is I have lately had lots of problems using selectors to find elements in a page and that changes all the time. So for example, how does the title DSL deal with those things and provide resilience to the test?
+
+
+
+Zabil:
+
+So like you mentioned selectors, that's a big thing. And some history around how Taiko came about is while we were building Gauge, we were trying to solve problems that users face when they were testing and flaky tests were the biggest problem that people noted. And there were two top reasons why tests fail. One was changing selectors, and I'll talk more about changing selectors. And the other one was wait times, people not knowing what time to wait for a particular element to appear on the page, or when people click something, there's an Ajax call and then something happens. These are the two biggest problems that were there. Now, when we looked at selectors, changing selectors was the biggest problem. And that is because the current tools use XPath selectors, which needs to know about the structure of the page.
+
+
+
+Zabil:
+
+And that's where we figured out that a change in functionality does not mean a change in the structure of the page. A button can remain a button with two different code styles. But that doesn't mean that the functionalities change which means your tests shouldn't fail either. So that can only happen if we actually go back to the roots of testing, treating the browser as a black box and not knowing how that box is built and the tests being written that way.
+
+
+
+Scott:
+
+So Taiko Selectors does not use XPath. It has an option for using XPath in some extreme cases, but the selectors over there are something we call Smart Selectors, which depends on the visual elements of the page. For example, if there's a button over there with a label add to shopping cart, you can just say click add to shopping cart without even saying that it's a button, it's just going to click something on the screen with add to shopping cart. And that holds true for other elements. So that in itself removes a lot of flakiness, because most of the projects when tests are plugged in earlier on in the development cycle, the application constantly evolves and things change, the pay structure changes.
+
+
+
+Zabil:
+
+Now, developers need not worry about that to go back and update the tests because of some page change. The other thing that we have is something called Proximity Selectors, where we can say, click a button near a specific text, and Taiko can automatically figure that out. So with this approach, treating the browser like a black box and having APIs to do that, it solves the first problem around selectors. And that is, let's say a major part of flakiness.
+
+
+
+Zabil:
+
+The other problem it solves is because Taiko uses or interacts directly with the browser or uses Chrome dev tools protocol, it knows how a browser page loads or how elements are loading in the browser page. So it just automatically, or intelligently figures out that the page is loading and elements are not loaded yet. Let's wait for the page to finish loading before clicking something. So that eliminates a lot of waits in the code, because I think already how people use waits is based on guesswork and you can never predict how much to wait for the page. And then the test ends up all becoming about tweaking the wait times, increasing your testing, and a lot of flakiness around this thing. So again, Taiko eliminates that by intelligently waiting.
+
+
+
+Alexey:
+
+Plus you have to be pessimistic, right? And that makes your test take much, much longer to run.
+
+
+
+Zabil:
+
+Exactly.
+
+
+
+Scott:
+
+Every page will take 20 seconds to load.
+
+
+
+Ashok:
+
+I do remember this where the natural instinct, once you start seeing the sort of behavior of a test failure that isn't necessarily indicative of change in anything like the journey. It starts promoting this thing that can just read on the best part and slowly, over time, you start losing confidence in anything . That could be seen as being very powerful for the future.
+
+
+
+Zabil:
+
+Yeah, exactly. I think long before, when we were building our products out, a colleague of mine actually came up with the term, I think it's very popular, “there's no such thing as flaky tests”. There are tests that break and we just ignore them and call them flaky. But those are actually unreliable tests.
+
+
+
+Scott:
+
+Well, and I think it goes back to something I said earlier about how we can apply the same engineering rigor to the front end that we have historically applied to backend development. When Zabil is talking about this selector logic, not only does it capture the user experience, the user is going to say, "I want to click on the search field." Not, "I want to click on the ID of this or this deeply nested kind of XPath selector logic." So not only does Taiko allow us to kind of get in the mind of the user that says, "Click on the search field, write this in it, click submit." These kinds of user experience kind of things. 
+
+
+
+Scott:
+
+It also allows us to address something that came out of very sound engineering principles, but simply aren't needed anymore. And that's the page object. The page object was a great pattern at the time. If you were doing your writing in say Java, and this webpage that's written by someone else is constantly changing, they're changing CSS classes, they're changing IDs, they're changing all these things and inadvertently breaking your tests, well, what you did is you wrote your own adapter pattern. You wrote your own page object and you said, "I'm going to program to the page object. I'm going to say, 'click the select field, write this in, click the submit button'," and then it gets wired up to whatever the code is behind the scenes. That was almost a firewall, a protection between you, the non-fronted developer and this kind of scary, unknown front end that seems to be changing in arbitrary and capricious ways.
+
+
+
+Scott:
+
+The selectors just completely deprecates the need for a page object altogether. It's actually kind of an anti-pattern now. When you're using these tools, we want to select. And so if I say, "click search" and there's something obviously on the page that's labeled search, well, it's just going to be clicked. But if you need more, there are these really wonderful fuzzy selectors like near. You could say, "Click search near the search button," or, "Click purchase near the invoice," or these kinds of things. And you can do above and below and to the left of, and to the right of, and so it really is about kind of more naturally interacting with the Dom and the way you'd be expecting rather than adding yet another layer of indirection.
+
+
+
+Scott:
+
+But another thing that I want to come back to once again, these sound engineering principles. When we come to unit tests, these unit tests are meant to be run in isolation. We want to isolate ourselves from file systems. We want to isolate ourselves from database calls and network calls and things like that, again, to add stability to these unit tests. Much of the flakiness that we've talked about, isn't a flakiness in the test. It's a flakiness on the network connection or the database connection or the file system not being in the state it needs to be in or anything else.
+
+
+
+Scott:
+
+What Taiko allows us to do is remove a lot of those sources of flakiness, a lot of those sources of instability. In Taiko, you can set your GPS location so you don't have to physically be in Bangalore in order to test this app as if you were in India. You can set that location and then run your Taiko tests. You can set cookies so you can be in a logged in state, or you can be in whatever state you need to be in. You can emulate individual devices, you can emulate an iPhone or a Galaxy, or these kinds of things. You can emulate networks to emulate a slow 2G network or a fast 4G network or things like that.
+
+
+
+Scott:
+
+By applying the same engineering rigor that we've historically applied to the backend, to the fronted, we can do these same kinds of things. We can put Taiko in a known good state every time. Known good state in that it ships with a known good browser, but also a known good state in terms of location and screen geometry and network conditions and through the intercept we talked about. We could completely isolate our tests and only be dealing with mock stubbed responses. And that feels like unit testing to me, but this is frontend user journey testing, but I'm using all the same skills that I have as a backend developer to test my frontend.
+
+
+
+Ashok:
+
+Well, I think what you describe Scott, about the capabilities that are now available, this opens up a whole world of richness in terms of my imagination. You don't need to be limited by imagination or what you can do with functional testing while continuing to retain all the power that you have, oftentimes that you describe there. That people will do with you in a test run. That's bringing that same engineering curve as you've been describing. I think that's fascinating. And seeing that applied, improving the design of the tool itself, I'm sure that users of Gauge and Taiko there's definitely a lot of power waiting to be unleashed. Fascinating.
+
+
+
+Alexey:
+
+And just to make sure, again, Zabil, open source projects, anyone can look at how it was done and contribute to that back and then of course use that.
+
+
+
+Scott:
+
+Yes. And both are long past 1.0 as well. Again, ThoughtWorks has a 20 year history of this. And so these tools are really thoughtful tools and they are advanced tools, but they're based on our 20 years of experience and the pain that you all have been feeling about testing at the tip of that pyramid is pain that we felt as well. And we've lived in. Being able to actively address that, there's something to be said for eating your own dog food. And certainly these are tools that we use internally on our projects. These are tools that we use with our clients and based on our experience, anytime we find a particular pattern or technique, that's popular, what we try to do, popular and successful. What we try to do is encapsulate that in software and then open source it. And that's just the nature of iterative software development. But when you look at iterative development over the course of decades, you really do end up getting a richness and sophistication that sometimes it's just missing from newer tools.
+
+
+
+Alexey:
+
+Yeah, that's great. Maybe we should have a conversation on that longer journey and how we got there. All right, so I guess this takes us to the end of the episode. Zabil and Scott, it was a great conversation. Amazing to have you with us. Thank you very much for joining.
+
+
+
+Scott:
+
+Thank you so much. It was a treat.
+
+
+
+Zabil:
+
+Thanks Alexey.
+
+
+
+Alexey:
+
+Thank you. And on the next episode, Rebecca Parsons and I will be joined by Ken Mugrabe, Arvind, and Scott Davis to talk about realizing the full potential of continuous delivery. Please join us for that conversation. And if you have any feedback for us, don't hesitate to reach out or to leave a rating or comments on your preferred platform. Thank you so much for listening. Bye.
