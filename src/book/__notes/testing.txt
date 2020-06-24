@@ -1,0 +1,10 @@
+https://shebanator.com/2007/08/21/a-brief-history-of-test-frameworks/
+
+Erich Gamma
+the starting point for the work on JUnit was Kent’s SUnit. SUnit was written in Smalltalk.
+
+Kent Beck
+I wrote SUnit in 1994 I think.
+The framework was so simple that I couldn’t imagine that it had value, even though I thought it was aesthetically cool
+
+TDD

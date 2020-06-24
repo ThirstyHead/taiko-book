@@ -1,0 +1,25 @@
+[[chapter_what_is]]
+== What is User Journey Testing?
+
+Testing has been important to me as a professional software engineer for as long as I can remember. 
+
+Now, I'm not suggesting that I've been writing tests since the very beginning, or that I always write tests, or even that the tests I write are particularly good. But my first professional development gigs as a software consultant were in Java in the late 1990s, and that was the time that jUnit -- a unit testing framework written by Erich Gamma and Kent Beck -- was really taking off. 
+
+What intrigued me about jUnit at the time was that it was not just a simple testing library -- it was a key part of a philosophy called Test-Driven Development (TDD), which in turn was a key part of a larger system of Agile practices called Extreme Programming (XP). Not surprisingly, Kent Beck (along with co-author Martin Fowler) wrote a book about all of these practices called Planning Extreme Programming. 
+
+Despite the "extreme" qualifier in XP, the practices recommended by XP seemed quite sensible and practical: 
+* Customers pick the features to be added
+* Programmers add the features so that they are completely ready to be used
+* Programmers and customers write and maintain automated tests to demonstrate the presence of these features
+
+This felt like such common sense to me at the time that I couldn't fully grasp why all software developers didn't use this approach. If I drop my car off at the repair shop and say, "When I drive above 55 miles per hour, I hear a loud clanking", I fully expect the mechanic to:
+* Drive my car above 55 miles per hour so that they can hear (and verify) the clanking sound
+* Fix the clanking
+* Demonstrate to me, when I pick up my car after the repair, that the clanking is gone by driving above 55 miles per hour with me in the car
+
+Now, if you've been programming for a while, you might be thinking, "That clanking is a bug, not a feature!" And while you're technically correct, what different behavior would you expect if I dropped my car off and said instead, "I'd like you to upgrade my sound system" or "I'd like you to install a new sun roof"? I'd expect the same sequence of events. Wouldn't you?
+
+
+
+
+
