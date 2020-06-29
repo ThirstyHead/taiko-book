@@ -7,13 +7,13 @@ Now, I'm not suggesting that I've been writing tests since the very beginning, o
 
 What intrigued me about JUnit at the time was that it was not just a simple testing library -- it was a key part of a philosophy called _Test-Driven Development_ (*TDD*), which in turn was a key part of a larger system of agile practices called _Extreme Programming_ (*XP*). Not surprisingly, Kent Beck (along with co-author Martin Fowler) wrote a book about all of these practices called _Planning Extreme Programming_ -- one of the first books I read on the subject.
 
-Despite the "Extreme" qualifier in XP, the practices recommended by XP seemed quite sensible and practical: 
+Despite the "Extreme" qualifier in XP, the practices recommended by Kent and Martin in their book seemed quite sensible and practical: 
 
 * Customers pick the features to be added
 * Programmers add the features so that they are completely ready to be used
 * Programmers and customers write and maintain automated tests to demonstrate the presence of these features
 
-This felt like such common sense to me at the time that I couldn't fully grasp why all software developers didn't use this approach. If I drop my car off at the repair shop and say, "When I drive above 55 miles per hour, I hear a loud clanking", I fully expect the mechanic to:
+This felt like such a common sense strategy to me at the time that I couldn't fully grasp why all software developers didn't use this approach. If I drop my car off at the repair shop and say, "When I drive above 55 miles per hour, I hear a loud clanking", I fully expect the mechanic to:
 
 * Drive my car above 55 miles per hour so that they can hear (and verify) the clanking sound
 * Fix the clanking
@@ -74,11 +74,26 @@ If you'd like to follow along and run the Taiko tests yourself, installing Taiko
 
 === Where do User Journey Tests live on the Testing Spectrum?
 
-One of the most important aspects of unit testing is, well, the unit of code being tested. More specifically, the size of the unit. The goal of unit testing is to focus on the smallest cohesive hunk of code that you can tease apart from the rest of the application in isolation. I often say that unit tests "test the bricks, not the building" because, after all, you can't trust the building if you don't trust the bricks. 
+One of the most important aspects of unit testing is, well, the _unit_ of code being tested. More specifically, the size of the unit. The goal of unit testing is to focus on the smallest cohesive hunk of code that you can tease apart from the rest of the application in isolation. I often say that unit tests "test the bricks, not the building" because, after all, you can't trust the building if you don't trust the bricks. 
 
 If your unit of code interacts with a database, or a file system, or a remote web service, it's common to _mock_ or _stub_ out those services with a fast, in-memory doppelgänger that behaves just like the original service does, but without the latency and brittleness that depending on an external service might introduce.  
 
 Author Mike Cohn, in his book _Succeeding with Agile_, introduced a powerful visual metaphor for this with the _Test Pyramid_.
 
-image::what-is/testPyramid.png
+.Mike Cohn's Test Pyramid, from _Succeeding with Agile_
+image::what-is/testPyramid.png[Mike Cohn's Test Pyramid]
 
+Under this rubric, developers are encouraged to write as many unit tests as they can, because they are the fastest, most stable, most repeatable types of tests. Service Tests (or, more popularly in subsequent years, _Integration Tests_, since they integrate with the databases and web services that unit tests intentionally mock out) still offer value, but they are typically slower to run, and more prone to brittleness due to circumstances beyond the control of the test itself. 
+
+At the tip of the pyramid are _UI Tests_ (User Interface Tests). Since all of the pieces of the application must be up and running, properly configured and secured -- and since many of those services may be out of the immediate control of the individual developer, or there may be a lack of a proper testing environment that accurately mirrors the production environment -- these tests are visually deemed "least important" in the hierarchy of tests.
+
+Arguing against the absolute validity of the Test Pyramid, even in a book that is all about those tests that live on the vanishing tip of the pyramid as it recedes from view, is a futile battle. Especially since I personally agree with the message of the Test Pyramid -- that is, if I'm a developer who is sitting furthest away from that mythical _user_ that everyone else seems to insist exists. Writing a test on behalf of someone who I most likely will never meet is a tall order to fill. On the other hand, writing tests for my fellow developers -- developers who I deal with every day; developers who will be depending on the validity of my code so that they can trust in the validity of their own code -- is a crucial and essential goal.  
+
+This myopic view of the development process as a whole isn't myopic in the least if you're a brick builder. But everyone else actively involved in the process who is further "up the pyramid", towards the user and the finished software product, might take issue with their role (and their tests) being deemed "less important".  
+
+Consider, for a moment, the legion of software development professionals who deal with the user directly and repeatedly. The group of software developers who are just as dedicated to the validity of the software application being developed. The group of professionals who want to apply the same engineering rigor of testing to the _User Experience_ as thoughtful developers do to the _Developer Experience_.  
+
+This change in perspective might benefit from a different visual metaphor. 
+
+.A new visual metaphor for software development that places the app as the center of focus
+image::what-is/UserJourneyTesting.004.png[The testing spectrum]
