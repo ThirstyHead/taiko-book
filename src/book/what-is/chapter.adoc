@@ -163,6 +163,26 @@ Gauge and Taiko work quite well together. All you have to do is associate the st
 
 Since our focus here is on Taiko, I'll leave Gauge behind for the time being. But if Gauge looks interesting to you, I encourage you to learn more about it at https://gauge.org/. 
 
+Regardless of what language we use to express our User Journey tests, where do you think they might show up on the Testing Spectrum?
+
+.User Journey tests on the Testing Spectrum
+image::what-is/UserJourneyTesting.007.png[User Journey tests on the Testing Spectrum]
+
+As you can see, unit tests and User Journey tests both exercise the app in important ways. The only difference is that unit tests exercise the app from the developer's perspective, while User Journey tests exercise the app from the user's perspective. Unit tests are written in the language of the developer, while User Journey tests are written in the language of the user. Unit tests are for the benefit of the developer, while User Journey tests are for the benefit of the user. 
+
+And why didn't I place User Journey tests to the far right of the Testing Spectrum like I did with unit tests to the far left? Well, there are a number of important types of tests that aren't automated, or even automatable. _Manual tests_ live at the far right -- tests that are run by hand instead of by software. _Usability tests_, where the user is given a task to perform like, "Buy the ingredients you'd need to make a spaghetti dinner" while usability experts watch and evaluate how easy it is to complete the task. _Accessibility tests_, where a user with low vision or blindness is encouraged to make the same User Journey through the app to prepare for a spaghetti dinner as a sighted user might.
+
+Since User Journey tests are automated, they are one step closer to the developer experience than manual tests are. Similarly, Integration Tests are one step closer to the user experience than unit tests are. 
+
+If you filled in the Testing Spectrum with all of the puzzle pieces, it might look something like this:
+
+.A variety of tests on the Testing Spectrum
+image::what-is/UserJourneyTesting.005.png[A variety of tests on the Testing Spectrum]
+
+Note that this is highly subjective, and not meant to be a recipe for you to follow down to the letter. It's meant to be a way for you to think about tests. Is this particular type of tests closer to the finished app, or farther away? Whose experience does this type of test affect most? 
+
+For example, _Fitness Functions_ test the health of the application's architecture rather than a low-level API. If your app doesn't meet minimum _Accessibility_ requirements, that's a showstopper bug. If it doesn't meet the minimum expectations you put into your _Performance Budget_, that is something the developers need to be notified of. These, along with _Privacy_ and _Security_, form the _APPS_ suite of Fitness Functions that I, as a Web Architect, have put in place to ensure that the app in question is qualified and ready to be put into production. And just like unit tests, these Fitness Functions are opaque to the end user.
+
 
 
 
