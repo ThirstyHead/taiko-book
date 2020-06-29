@@ -72,7 +72,13 @@ Of course, TDD is no more tied to JUnit than User Journey testing is tied to Tai
 
 If you'd like to follow along and run the Taiko tests yourself, installing Taiko is as simple as `npm install -g taiko`. Once Taiko is installed, you can type `taiko` at the command prompt to enter the interactive REPL and explore on your own. Anything that you type in the Taiko REPL can be exported to modern JavaScript by typing `.code` to see the code on screen, or by typing `.code mytest.js` to save the JavaScript to the current working directory. After that, you can type `taiko mytest.js` to run the code outside of the REPL by hand or, say, in your _Continuous Delivery_ (*CD*) pipeline.  
 
+=== Where do User Journey Tests live on the Testing Spectrum?
 
+One of the most important aspects of unit testing is, well, the unit of code being tested. More specifically, the size of the unit. The goal of unit testing is to focus on the smallest cohesive hunk of code that you can tease apart from the rest of the application in isolation. I often say that unit tests "test the bricks, not the building" because, after all, you can't trust the building if you don't trust the bricks. 
 
+If your unit of code interacts with a database, or a file system, or a remote web service, it's common to _mock_ or _stub_ out those services with a fast, in-memory doppelgänger that behaves just like the original service does, but without the latency and brittleness that depending on an external service might introduce.  
 
+Author Mike Cohn, in his book _Succeeding with Agile_, introduced a powerful visual metaphor for this with the _Test Pyramid_.
+
+image::what-is/testPyramid.png
 
