@@ -111,6 +111,60 @@ In our new visual metaphor, we can see that unit tests are about as far away fro
 
 The Testing Spectrum also visually indicates that unit tests are just one piece of the testing puzzle. 
 
-Without a solid suite of unit tests, software developers cannot have subsequent conversations about _Code Coverage_ -- how much of the codebase is _covered_ or tested by unit tests -- and _Cyclomatic Complexity_ -- how complex the codebase is, which can suggest how many _hidden bugs_ might be masked by the accidental complexity of the code being tested.
+Without a solid suite of unit tests, software developers cannot have subsequent conversations about _Code Coverage_ -- how much of the codebase is _covered_ or tested by unit tests -- and _Cyclomatic Complexity_ -- how complex the codebase is, which can suggest that _hidden bugs_ might be masked by the accidental complexity of the code being tested.
 
 These conversations are crucially important to me as a software developer, from a developer's perspective. But these tests don't speak to the user experience. Unit tests aren't shipped with the finished app. The user can't run them directly. While the user definitely benefits from a solid suite of unit tests in an abstract way, much like a symphonygoer benefits from a cellist applying bowstring wax before the performance and practicing their musical scales, the presence or absence of unit tests, let alone the intrinsic quality of them, is invisible to the end user.   
+
+So, what does speak to the user experience, and affect the user directly? The User Interface, of course! From the user's perspective, the UI _is the app_, just like the API _is the app_ from the developer's perspective. The user isn't adding Strings to an Array, or even CatalogItems to a ShoppingCart object when they use the app -- they are adding bananas to their basket. 
+
+And what might a test look like, from the user's perspective?
+
+[code, javascript]
+.Adding bananas to the basket with Taiko
+----
+openBrowser()
+goto('https://thirstyhead.com/groceryworks/')
+click('Produce')
+click('Bananas')
+click('Purchase')
+----
+
+These are the steps the user would take, quite possibly in a language similar to (but not identical to) what they would use to describe their User Journey to someone else. The Taiko DSL isn't meant to be plain English, but hopefully it is readable to the non-programmer. 
+
+Taiko is, in fact, well-formed JavaScript. It is an example of an _Internal DSL_ -- "internal" to and consistent with the programming language that it is written in -- as opposed to an _External DSL_ which has its own personal syntax rules separate from its source programming language. 
+
+If you want to capture a User Journey in something even closer to the language the user used to describe the steps, you might be interested in another open source testing tool called _Gauge_. Gauge allows you to describe the steps of your test in a language called _Markdown_, which is as close to plain English as I've been able to find.
+
+Here's what a Gauge test might look like:
+
+[code, markdown]
+.Adding bananas to the basket with Gauge
+----
+## Buying Bananas
+* goto "GroceryWorks"
+* click "Produce"
+* click "Bananas"
+* click "Purchase"
+----
+
+And here's another way that you could represent the same User Journey in Gauge:
+
+[code, markdown]
+.Another way to add bananas to the basket with Gauge
+----
+## Buying Bananas
+* visit the shopping website 
+* click on the "Produce" menu item in the sidebar
+* select "Bananas" from the list of produce items
+* press the "Purchase" button on the shopping cart 
+----
+
+Gauge and Taiko work quite well together. All you have to do is associate the steps in Gauge with the underlying code in Taiko, and you have a set of User Journey tests expressed in a language that any non-programming user should recognize and understand.
+
+Since our focus here is on Taiko, I'll leave Gauge behind for the time being. But if Gauge looks interesting to you, I encourage you to learn more about it at https://gauge.org/. 
+
+
+
+
+
+
