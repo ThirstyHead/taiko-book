@@ -179,9 +179,11 @@ If you filled in the Testing Spectrum with all of the puzzle pieces, it might lo
 .A variety of tests on the Testing Spectrum
 image::what-is/UserJourneyTesting.005.png[A variety of tests on the Testing Spectrum]
 
-Note that this is highly subjective, and not meant to be a recipe for you to follow down to the letter. It's meant to be a way for you to think about tests. Is this particular type of tests closer to the finished app, or farther away? Whose experience does this type of test affect most? 
+Note that this is highly subjective, and not meant to be a recipe for you to follow down to the letter. It's meant to be a way for you to think about tests. Is this particular type of test closer to the finished app, or farther away? Whose experience does this type of test affect most? 
 
-For example, _Fitness Functions_ test the health of the application's architecture rather than a low-level API. If your app doesn't meet minimum _Accessibility_ requirements, that's a showstopper bug. If it doesn't meet the minimum expectations you put into your _Performance Budget_, that is something the developers need to be notified of. These, along with _Privacy_ and _Security_, form the _APPS_ suite of Fitness Functions that I, as a Web Architect, have put in place to ensure that the app in question is qualified and ready to be put into production. And just like unit tests, these Fitness Functions are opaque to the end user.
+For example, _Fitness Functions_ test the health of the application's architecture rather than a low-level API. If your app doesn't meet minimum _Accessibility_ requirements, that's a showstopper bug that the developers need to fix. If it doesn't meet the minimum expectations you put into your _Performance Budget_, that is something the developers need to be notified of. These, along with _Privacy_ and _Security_, form the _APPS_ suite of Fitness Functions that I, as a Web Architect, have put in place to ensure that the app in question is qualified and ready to be put into production. And just like unit tests, these Fitness Functions are opaque to the end user.
+
+Now consider A/B tests -- a programming technique that shows one version of a feature (A) to a select group of users, while another group of users are exposed to the (B) version of the same feature. An example of this might be allowing 1% of your user base to log in with their Twitter account (a new feature that you'd like to evaluate) while the remaining 99% log in with their existing username and password. Since this directly affects the user experience, I've placed it along the UX spectrum, but closest to the app and the developers. 
 
 
 
