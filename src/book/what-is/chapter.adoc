@@ -100,7 +100,7 @@ image::what-is/UserJourneyTesting.004.png[The testing spectrum]
 
 First of all, let's place the application at the center of our model. A finished, correctly working app is the highest priority of both the developer and the user. As the user describes what they want the app to do, the developer converts their vision into working code. The application, therefore, is both the fulcrum of the user-developer relationship as well as proof of its success.
 
-The application is also an opaque boundary between the two world. Source code, and the tests that measure its success, is quite literally written in a foreign, unintelligible language to the end user. A symphonygoer can tell you in great detail what they enjoy about the music, but they may or may not be able to point to the specific passage in the sheet music that brings them such joy.   
+The application is also an opaque boundary between the two world. Source code, and the test suite that measures its success, is quite literally written in a foreign, unintelligible language to the end user. A symphonygoer can tell you in great detail what they enjoy about the music, but they may or may not be able to point to the specific passage in the sheet music that brings them such joy.   
 
 So, with this new perspective in mind, let's place unit tests on the Testing Spectrum.
 
@@ -170,7 +170,9 @@ image::what-is/UserJourneyTesting.007.png[User Journey tests on the Testing Spec
 
 As you can see, unit tests and User Journey tests both exercise the app in important ways. The only difference is that unit tests exercise the app from the developer's perspective, while User Journey tests exercise the app from the user's perspective. Unit tests are written in the language of the developer, while User Journey tests are written in the language of the user. Unit tests are for the benefit of the developer, while User Journey tests are for the benefit of the user. 
 
-And why didn't I place User Journey tests to the far right of the Testing Spectrum like I did with unit tests to the far left? Well, there are a number of important types of tests that aren't automated, or even automatable. _Manual tests_ live at the far right -- tests that are run by hand instead of by software. _Usability tests_, where the user is given a task to perform like, "Buy the ingredients you'd need to make a spaghetti dinner" while usability experts watch and evaluate how easy it is to complete the task. _Accessibility tests_, where a user with low vision or blindness is encouraged to make the same User Journey through the app to prepare for a spaghetti dinner as a sighted user might.
+And why didn't I place User Journey tests to the far right of the Testing Spectrum like I did with unit tests to the far left? Well, there are a number of important types of tests that aren't automated, or even automatable. _Manual tests_ live at the far right -- tests that are run by hand instead of by software. 
+
+For example, _Usability tests_, where the user is given a task to perform like, "Buy the ingredients you'd need to make a spaghetti dinner" while usability experts watch and evaluate how easy it is to complete the task. Another example is _Accessibility tests_, where a user with low vision or blindness is encouraged to make the same User Journey through the app to prepare for a spaghetti dinner as a sighted user might.
 
 Since User Journey tests are automated, they are one step closer to the developer experience than manual tests are. Similarly, Integration Tests are one step closer to the user experience than unit tests are. 
 
@@ -181,12 +183,40 @@ image::what-is/UserJourneyTesting.005.png[A variety of tests on the Testing Spec
 
 Note that this is highly subjective, and not meant to be a recipe for you to follow down to the letter. It's meant to be a way for you to think about tests. Is this particular type of test closer to the finished app, or farther away? Whose experience does this type of test affect most? 
 
-For example, _Fitness Functions_ test the health of the application's architecture rather than a low-level API. If your app doesn't meet minimum _Accessibility_ requirements, that's a showstopper bug that the developers need to fix. If it doesn't meet the minimum expectations you put into your _Performance Budget_, that is something the developers need to be notified of. These, along with _Privacy_ and _Security_, form the _APPS_ suite of Fitness Functions that I, as a Web Architect, have put in place to ensure that the app in question is qualified and ready to be put into production. And just like unit tests, these Fitness Functions are opaque to the end user.
+For example, _Fitness Functions_ test the health of the application's architecture rather than a low-level API. If your app doesn't meet minimum _Accessibility_ requirements, that's a showstopper bug that the developers need to fix. If it doesn't meet the minimum expectations you put into your _Performance Budget_, that is something the developers need to be notified of. These, along with _Privacy_ and _Security_, form the _APPS_ suite of Fitness Functions that I, as a Web Architect, typically put in place to ensure that the app in question is qualified and ready to be put into production. And just like unit tests, these Fitness Functions are opaque to the end user.
 
 Now consider A/B tests -- a programming technique that shows one version of a feature (A) to a select group of users, while another group of users are exposed to the (B) version of the same feature. An example of this might be allowing 1% of your user base to log in with their Twitter account (a new feature that you'd like to evaluate) while the remaining 99% log in with their existing username and password. Since this directly affects the user experience, I've placed it along the UX spectrum, but closest to the app and the developers. 
 
+Another way that you can evaluate where the tests belong on the Testing Spectrum is through the prism of _empathy_. When I'm in TDD-mode -- writing my tests first and watching 'em fail, then writing the code to make 'em pass -- I'm rarely testing for bugs. After all, the code doesn't exist yet! What kind of pessimist with low self esteem would I have to be to write tests while thinking, "Yup, this is the kind of bug I always write..."?  
 
+Instead, I'm writing my first set of tests to take the API out for a spin. I'm quite literally the first user of my code when I write my tests, so I'm constantly asking myself, "How does this API feel? Did I name it well? Do the arguments make sense? Are they in a logical order?"
 
+This is developer empathy. I'm putting myself in the shoes of other developers who will eventually use my code. How does that make me feel? Do I trust my code enough to share it with others? 
+
+On the UX side of the equation, a set of practices called _Design Thinking_ resembles agile and XP practices in striking ways. Both are iterative processes. Both recommend making tiny changes, evaluating their effectiveness, and then repeating the process again.
+
+And the first step in Design Thinking is empathy.
+
+.Empathy is Stage 1 of the Design Thinking process
+image::what-is/design-thinking-empathy.png[Empathy is Stage 1 of the Design Thinking process]
+
+So, when I'm writing User Journey tests, I'm rarely looking for bugs, either. I'm taking the UI out for a spin. Are there too many clicks to get the bananas into the basket? Do I have to log in before I start putting things in my shopping cart, or can I log in just-in-time, right before I need to provide payment and shipping details? I ask myself, "Is this a user experience that I'd enjoy?" in the same way I ask myself if the API I'm writing is something that I'd enjoy as a developer. 
+
+Just like I'd do with TDD, I can write my User Journey tests before I've written the UI. I run the User Journey test, and watch it fail when I try to reach the website in question. I write just enough HTML to make the test pass, and then it fails when I try to click "Produce". I can add a "Produce" item to the sidebar to allow the next step to pass and keep going until I've successfully implemented the entire User Journey. 
+
+As a matter of fact, when I teach classes and workshops on web development, I've started including Taiko tests with each of the labs I ask my students to complete. They can run the test at the beginning of the lab to see what I'm asking them to do, watch it fail, and then chip away at it until they know that they're unambiguously done and unambiguously correct.
+
+Just like I've done for years with my other programming classes and unit test-driven labs.
+
+The one thing that might feel odd about writing User Journey tests, when compared to unit tests, is the apparent lack of assertions. At least, it certainly did to me initially.
+
+When I'm teaching my students about unit tests, we focus on inputs, outputs, and assertions. If I add three things to my shopping cart in a test, my assertion might be something like `assert shoppingCart.itemCount() === 3`. Most people think of things like JUnit as a "testing library", while, in fact, it really is more of an "assertion library". 
+
+There are a number of different testing/assertion libraries written in JavaScript, and you are welcome to incorporate any of them into your Taiko testing routine. After all, a Taiko test is just a well-formed JavaScript program that runs in Node.js. If I need an assertion library, I'll typically type `const assert = require('assert')` at the top of my Taiko test. But I do that less often than you might think.
+
+Why is that? Because each step of a User Journey test is an implicit assertion. I'm validating that the User Journey works as I expect it to, and any step along the way that fails means that my assumption about the journey is flawed. 
+
+If I'm adding bananas to my basket, I'm confident that some developer deep in the depths of that opaque codebase has written a unit test to make sure that `shoppingCart.itemCount()` is valid and ready to be used in production. With Taiko, I'm not testing the bricks; I'm testing the building.
 
 
 
