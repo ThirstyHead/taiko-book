@@ -2,6 +2,8 @@
 
 This books takes a very practical, code-first approach to solving common problems using Taiko, a browser-automation DSL.
 
+A PDF version of the latest draft can be found in /dist/book.pdf.
+
 
 ## Building the book
 This book was written in Asciidoctor. This project assumes that you have Asciidoctor installed locally, as well as Asciidoctor PDF.
