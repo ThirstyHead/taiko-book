@@ -43,28 +43,21 @@ footer:
     left:
       content: ~
 
-title-page:
-  background-image: title-cover.png
-  title:
-    display: none
-  subtitle:
-    display: none
-  authors:
-    display: none
+front-cover-image: image:title-cover.png[]
 
-  #  align: right
-  #title:
-  #  font-color: #000000
-  #  font-size: 50
-  #  font-style: bold
-  #  top: 2%
-  #subtitle:
-  #  font-color: #FFFFFF
-  #  font-size: 30
-  #  font-style: italic
-  #authors:
-  #  font-color: #000000
-  #  font-size: 20
-  #  font-style: bold
-  #  margin-top: 15
+# title-page:
+  # title:
+   # font-color: #000000
+   # font-size: 50
+   # font-style: bold
+   # top: 2%
+  # subtitle:
+   # font-color: #FFFFFF
+   # font-size: 30
+   # font-style: italic
+  # authors:
+   # font-color: #000000
+   # font-size: 20
+   # font-style: bold
+   # margin-top: 15
 

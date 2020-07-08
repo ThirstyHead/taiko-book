@@ -1,11 +1,15 @@
-= Taiko: A Code-First Approach
+= Taiko: A Code-First Approach to User Journey Testing
 :Author:        Scott Davis
 :Email:         scott.davis@thoughtworks.com
 :Date:          2020-04-15
 :Revision:      0.1.0
 :doctype:       book
-:toc:
+:toc:           macro
+:front-cover-image: image:cover-page.png[]
 
+include::colophon/colophon.adoc[]
+include::dedication/dedication.adoc[]
+toc::[]
 include::intro/chapter.adoc[]
 include::what-is/chapter.adoc[]
 include::install/chapter.adoc[]
