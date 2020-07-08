@@ -1,7 +1,7 @@
 [colophon]
 
 
-Copyright (C) 2020 ThirstyHead.com
+Copyright (C) 2020 by ThirstyHead.com
 
 This work is licensed under a Creative Commons Attribution 4.0 International License.
 

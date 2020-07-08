@@ -3,7 +3,7 @@
 <<<
 
 [quote, Grace Hopper]
-I’ve always objected to doing anything over again if I had already done it once. 
+_I’ve always objected to doing anything over again if I had already done it once._
 
 
 

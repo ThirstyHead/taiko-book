@@ -4,7 +4,7 @@ page:
   layout: portrait
   margin: [0.75in, 1in, 0.75in, 1in]
   size: Letter
-  numbering-start-at: 5
+  numbering-start-at: 4
 
 base:
   font-color: #333333
@@ -44,21 +44,17 @@ footer:
     left:
       content: ~
 
-front-cover-image: image:title-cover.png[]
-
-# title-page:
-  # title:
-   # font-color: #000000
-   # font-size: 50
-   # font-style: bold
-   # top: 2%
-  # subtitle:
-   # font-color: #FFFFFF
-   # font-size: 30
-   # font-style: italic
-  # authors:
-   # font-color: #000000
-   # font-size: 20
-   # font-style: bold
-   # margin-top: 15
+title-page:
+  align: right
+  title:
+   font-size: 70
+   font-style: bold
+  subtitle:
+   font-color: #777777
+   font-size: 35
+   font-style: italic
+   line-height: 1
+  authors:
+   font-size: 20
+   font-style: bold
 
