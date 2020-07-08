@@ -4,6 +4,7 @@
 :Date:          2020-04-15
 :Revision:      0.1.0
 :doctype:       book
+:title-page:
 :toc:           macro
 :front-cover-image: image:cover-page.png[]
 
