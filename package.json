@@ -1,8 +1,8 @@
 {
   "name": "taiko-book",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "description": "This books takes a very practical, code-first approach to solving common problems using Taiko, a browser-automation DSL.",
-  "main": "index.js",
+  "main": "dist/book.pdf",
   "scripts": {
     "start": "asciidoctor-pdf --source-dir=./src/book --destination-dir=./dist -a pdf-themesdir=./src/book/__theme/pdf -a pdf-theme=book ./src/book/book.adoc",
     "html": "./build"
