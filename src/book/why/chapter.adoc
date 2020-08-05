@@ -1,0 +1,50 @@
+[[chapter_why]]
+== Why Test the User Journey?
+
+I recently worked with a team of software developers who were quite proud of the level of testing they had in place on their project. They had a robust set of unit tests, and extensive code coverage reports to match. They were thoughtful about separating out their unit tests (performed in isolation with the tactical use of mocks and stubs) from their more involved, longer running integration tests.  
+
+The project was a traditional web site, complete with a login screen, a catalog of items, and the ubiquitous shopping cart. When I asked them how they tested their user interface, their responses ranged from sheepish to indignant. 
+
+[quote]
+----
+"Well, we have a couple of Selenium tests, but they're pretty brittle. They always seem to be broken, so we rarely run them." 
+
+"We decided that since we test the back end so extensively with unit and integration tests, the UI tests were redundant and unnecessary." 
+
+"Since we use [a popular web framework], we assume that the framework is well-tested. What bugs could we possibly find that they haven't found already?" 
+
+"I click through every screen of the website right before we give our showcase for the client, just to be sure that nothing blows up in our face."
+----
+
+Brittleness. Redundancy. A "testing is for finding bugs"-only mentality. All of these seem to conspire against user interface testing, even among developers who consider themselves test-first advocates. Even the phrase "user interface testing" unwittingly seems to place the emphasis on "interface" rather than "user" in the mind of many developers.
+
+Some of this might be explained by the code-first myopia that many software developers suffer from. Inexplicably, "users" are often reduced to a distant, abstract notion rather than the whole point of the software writing exercise in the first place. The tangible nature of the source code in front of the developer -- in many cases, the source code that they just wrote themselves -- is far more "real" than any notion of a user trying to use the code that they just composed.
+
+All of which is why I've become a big fan of the notion of user journey testing -- from the writing of the tests themselves to the words we use to describe the tests.
+
+=== What is a User Journey Test?
+
+A _user journey_ is simply the specific steps a user has to perform to accomplish something on your website. If a user needs to buy ingredients for a spaghetti dinner from a grocery store website, the steps might be:
+
+* Log in to the website
+* Add items (like tomatoes, garlic, Parmesan cheese, and noodles) to the shopping cart
+* Click on the Checkout button
+
+If a user wants to attend a software conference, the steps might be:
+
+* Visit the software conference website
+* Click on the Register button
+* Fill in the form details
+* Click on the Submit button
+
+So then, a _user journey test_ is a programmatic, automated way to perform the same steps that the user would in the same circumstances. Stated another way, user journey tests assure the correctness of your website by simply walking the same paths your users already do.  
+
+=== How are User Journey Tests Different than Unit Tests?
+
+For software developers who embrace unit testing, user journey testing should feel largely familiar, while differing in some subtle, interesting ways.
+
+The principal considerations for unit tests are _inputs_, _outputs_, and _assertions_. If you're testing a `CalculateSalesTax` function, the inputs might be a `SalesAmount` and a `Location`. The output is the calculated amount of sales tax. And the assertions should ensure that the expected results match the actual results. 
+
+If the `CalculateSalesTax` function accepts `City` and `State` arguments as `Strings`, you can pass in a variety of values and assert that the results match your expectations. If the function expects a `LoggedInUser` to provide these details in a `UserAddress` class, you might have to mock out these objects so that the unit test can pass. Similarly, if the `CalculateSalesTax` function uses a GPS call to determine where the user is physically located at the time of checkout, you'll need to invest some additional time and energy in figuring out how to mock out the GPS and supply arbitrary `Latitude`/`Longitude` points that simulate different users in different locations. 
+
+

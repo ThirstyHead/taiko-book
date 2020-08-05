@@ -3,6 +3,8 @@
 
 Copyright (C) 2020 by ThirstyHead.com
 
+Version 1.0.0
+
 This work is licensed under a Creative Commons Attribution 4.0 International License.
 
 image::colophon/cc-by-4.0.png[Creative Commons Attribution 4.0 International License]

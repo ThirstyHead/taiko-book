@@ -11,6 +11,7 @@
 include::colophon/colophon.adoc[]
 include::dedication/dedication.adoc[]
 toc::[]
+include::why/chapter.adoc[]
 include::introduction/chapter.adoc[]
 //include::intro/chapter.adoc[]
 include::install/chapter.adoc[]
