@@ -47,4 +47,12 @@ The principal considerations for unit tests are _inputs_, _outputs_, and _assert
 
 If the `CalculateSalesTax` function accepts `City` and `State` arguments as `Strings`, you can pass in a variety of values and assert that the results match your expectations. If the function expects a `LoggedInUser` to provide these details in a `UserAddress` class, you might have to mock out these objects so that the unit test can pass. Similarly, if the `CalculateSalesTax` function uses a GPS call to determine where the user is physically located at the time of checkout, you'll need to invest some additional time and energy in figuring out how to mock out the GPS and supply arbitrary `Latitude`/`Longitude` points that simulate different users in different locations. 
 
+So, you can see how quickly unit tests can become an exercise in simulation and abstractions away from reality. You don't need an actual user in Denver, Colorado to put actual grocery items in their shopping cart just to determine if your sales tax calculations are correct.
+
+In comparison, user journey tests may simulate a user's behavior on your website, but that's where the artificialness ends. We expect an actual website to be up and running, and the steps of the user journey tests should be indistinguishable (from the website's perspective) from those of an actual living, breathing user.
+
+A good user journey testing library or framework will still allow you to simulate various aspects of the website interaction -- simulating a smartphone on a slow cellular network connection from a fictitious location -- but the actual steps performed on the website are more real than not. We can simulate the conditions around the user journey, but the steps of the user journey test itself are a real test of the website's actual functionality.
+
+
+
 
