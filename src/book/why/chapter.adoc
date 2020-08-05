@@ -20,24 +20,17 @@ Brittleness. Redundancy. A "testing is for finding bugs"-only mentality. All of 
 
 Some of this might be explained by the code-first myopia that many software developers suffer from. Inexplicably, "users" are often reduced to a distant, abstract notion rather than the whole point of the software writing exercise in the first place. The tangible nature of the source code in front of the developer -- in many cases, the source code that they just wrote themselves -- is far more "real" than any notion of a user trying to use the code that they just composed.
 
-All of which is why I've become a big fan of the notion of user journey testing -- from the writing of the tests themselves to the words we use to describe the tests.
+All of which is why I've become a big fan of user journey testing -- from the writing of the tests themselves to the words we use to describe the tests.
 
 === What is a User Journey Test?
 
 A _user journey_ is simply the specific steps a user has to perform to accomplish something on your website. If a user needs to buy ingredients for a spaghetti dinner from a grocery store website, the steps might be:
 
-* Log in to the website
+* Visit the website
 * Add items (like tomatoes, garlic, Parmesan cheese, and noodles) to the shopping cart
 * Click on the Checkout button
 
-If a user wants to attend a software conference, the steps might be:
-
-* Visit the software conference website
-* Click on the Register button
-* Fill in the form details
-* Click on the Submit button
-
-So then, a _user journey test_ is a programmatic, automated way to perform the same steps that the user would in the same circumstances. Stated another way, user journey tests assure the correctness of your website by simply walking the same paths your users already do.  
+So then, a _user journey test_ is a programmatic, automated way to perform the same steps that the user would in the same circumstances. Stated another way, user journey tests assure the correctness of your website by simply walking the same paths that your users already do.  
 
 === How are User Journey Tests Different than Unit Tests?
 
@@ -49,10 +42,43 @@ If the `CalculateSalesTax` function accepts `City` and `State` arguments as `Str
 
 So, you can see how quickly unit tests can become an exercise in simulation and abstractions away from reality. You don't need an actual user in Denver, Colorado to put actual grocery items in their shopping cart just to determine if your sales tax calculations are correct.
 
-In comparison, user journey tests may simulate a user's behavior on your website, but that's where the artificialness ends. We expect an actual website to be up and running, and the steps of the user journey tests should be indistinguishable (from the website's perspective) from those of an actual living, breathing user.
+In comparison, user journey tests may simulate a user's behavior on your website, but that's where the artificialness ends. We expect an actual website to be up and running, and the steps of the user journey tests should be indistinguishable (from the website's perspective) from those of an actual living, breathing user. 
 
-A good user journey testing library or framework will still allow you to simulate various aspects of the website interaction -- simulating a smartphone on a slow cellular network connection from a fictitious location -- but the actual steps performed on the website are more real than not. We can simulate the conditions around the user journey, but the steps of the user journey test itself are a real test of the website's actual functionality.
+The principal consideration for a user journey test is the _steps_ a user must take to complete a task. These tests are more interested in the _assurance_ that each step of the user journey can be completed successfully, in sequence, rather than individual, explicit _assertions_ along the way. A collection of passing user journey tests is your measure of success.  
 
+A good user journey testing library or framework will still allow you to simulate various aspects of the website interaction -- simulating a smartphone on a slow cellular network connection from a fictitious location -- but the actual steps performed on the website are more real than not. We can simulate the conditions around the user journey, but the steps of the user journey test itself are the real test of the website's actual functionality.
 
+But perhaps the biggest difference between a unit test and a user journey test is the perspective of the test writer. Unit tests are written from the perspective of a software developer wanting to use a specific function. User journey tests are written from the perspective of a user wanting to use your website. This shift in perspective -- putting yourself in the user role, describing the steps the user will take to accomplish a task -- brings empathy into the equation. You, as the test writer, are quite literally walking the same path through your website as your users do. And this empathy isn't something that you should strive to mock away.
+
+=== Conclusion
+
+The conscientious team of software developers that you met at the beginning of this story decided try out a new user journey testing library called Taiko. The easy installation -- `npm install -g taiko` -- and the light, expressive JavaScript-based DSL made it easy to learn and explore. Taiko dramatically reduced the developer cost of writing user journey tests, and markedly reduced the test brittleness as well.  
+
+Here's what their "Buy the ingredients for a spaghetti dinner" user journey test looked like in Taiko:
+
+[code, javascript]
+.A user journey test written in Taiko
+----
+openBrowser()
+goto('https://thirstyhead.com/groceryworks/')
+click('Produce')
+click('Vine-Ripened Tomatoes')
+click('Purchase')
+----
+
+When the developers tried to log into their website using Taiko, they discovered that they couldn't select the `Username` and `Password` fields because they hadn't used the semantically appropriate `&lt;label&gt;` elements with their `&lt;input&gt;` fields. They discovered an accessibility bug with the first test they wrote!
+
+They went on to discover that they couldn't programmatically select items from the catalog because the items all had the same HTML ID due to a copy/paste error. A page that they tried to visit using Taiko errored out because they had been testing the pages in isolation and in a simulated environment. When they visited that same page as the user would -- as one step in a sequence of many along the path of a specific user journey -- they uncovered a tricky state-related bug that they never would've found testing the page in isolation.
+
+At the end of my engagement with the project, one of the team members said:
+
+[quote]
+----
+"We always knew that testing was important. What we didn't realize is that you unconsciously test what's important to you. 
+
+As software developers, we were deeply invested in the quality of our code by writing unit tests. But what we failed to do was dedicate that same level of care to the user experience. 
+
+Now that we know more about user journey tests, we know that our website's user experience will be as rich and bug-free as the developer experience."
+----
 
 
