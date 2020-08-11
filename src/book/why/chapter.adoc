@@ -16,11 +16,13 @@ The project was a traditional web site, complete with a login screen, a catalog 
 "I click through every screen of the website right before we give our showcase for the client, just to be sure that nothing blows up in our face."
 ----
 
-Brittleness. Redundancy. A "testing is for finding bugs"-only mentality. All of these seem to conspire against user interface testing, even among developers who consider themselves test-first advocates. Even the phrase "user interface testing" unwittingly seems to place the emphasis on "interface" rather than "user" in the mind of many developers.
+Brittleness. Redundancy. A "testing is for finding bugs"-only mindset. All of these seem to conspire against user interface testing, even among developers who consider themselves test-first advocates. Even the phrase "user interface testing" unwittingly seems to place the emphasis on "interface" rather than "user" in the mind of many developers.
 
 Some of this might be explained by the code-first myopia that many software developers suffer from. Inexplicably, "users" are often reduced to a distant, abstract notion rather than the whole point of the software writing exercise in the first place. The tangible nature of the source code in front of the developer -- in many cases, the source code that they just wrote themselves -- is far more "real" than any notion of a user trying to use the code that they just composed.
 
 All of which is why I've become a big fan of user journey testing -- from the writing of the tests themselves to the words we use to describe the tests.
+
+Because, as you'll see in just a moment, there were a number of bugs lurking in their user interface -- bugs that were trivial and obvious to uncover by simply testing the application by using it as their users would. After months of testing the application, the team was surprised by how many undiscovered bugs they still had when they applied a new avenue of testing.
 
 === What is a User Journey Test?
 

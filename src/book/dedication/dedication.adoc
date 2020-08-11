@@ -2,9 +2,12 @@
 
 <<<
 
+
+[quote, Steve "Woz" Wozniak]
+_The human is more important than the technology. Make things more human._
+
+
 [quote, Grace Hopper]
 _I’ve always objected to doing anything over again if I had already done it once._
-
-
 
 
